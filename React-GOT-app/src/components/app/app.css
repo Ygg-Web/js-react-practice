@@ -1,0 +1,19 @@
+.toggle-btn {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin-bottom: 20px ;
+    margin-top: 20px;
+    background-color: indigo;
+    border-color: indigo;
+}
+
+.description-block {
+    margin-top: 30px ;
+}
+
+.app {
+    background: blue url('got.jpeg') center center no-repeat;
+    background-size: cover;
+    height: 1000px;	
+}
