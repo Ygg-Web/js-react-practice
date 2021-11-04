@@ -4,6 +4,11 @@ export class Form {
         this.controls = controls
     }
 
+    clear() {
+        Object.keys(this.controls).forEach(control => {
+            this.form[control].value = ''
+        })
+    }
 
     value() {
         const value = {}
