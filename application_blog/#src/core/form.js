@@ -4,6 +4,7 @@ export class Form {
         this.controls = controls
     }
 
+
     value() {
         const value = {}
         Object.keys(this.controls).forEach(control => {
@@ -23,9 +24,7 @@ export class Form {
                 isValid = validator(this.form[control].value) && isValid
             })
 
-            if (!isValid) {
-                setError(this.form[control])
-            }
+            isValid ? clearError(this.form[control]) : setError(this.form[control])
 
             isFormValid = isFormValid && isValid
         })
@@ -35,7 +34,17 @@ export class Form {
 }
 
 function setError(control) {
+    clearError(control)
     const error = `<p class="validation-error">Введите корректное значение</p>`
     control.classList.add('invalid')
     control.insertAdjacentHTML('afterend', error)
+}
+
+function clearError(control) {
+    control.classList.remove('invalid')
+
+    if (control.nextSibling) {
+        control.closest('.form-control').removeChild(control.nextSibling)
+    }
+
 }
