@@ -23,9 +23,19 @@ export class Form {
                 isValid = validator(this.form[control].value) && isValid
             })
 
+            if (!isValid) {
+                setError(this.form[control])
+            }
+
             isFormValid = isFormValid && isValid
         })
 
         return isFormValid
     }
+}
+
+function setError(control) {
+    const error = `<p class="validation-error">Введите корректное значение</p>`
+    control.classList.add('invalid')
+    control.insertAdjacentHTML('afterend', error)
 }
