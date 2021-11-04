@@ -31,5 +31,4 @@ function submitHandler(event) {
 
         console.log('Submin', formData)
     }
-
 }
