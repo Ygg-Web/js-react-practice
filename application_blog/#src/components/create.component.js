@@ -24,6 +24,7 @@ function submitHandler(event) {
     if (this.form.isValid()) {
         const formData = {
             type: this.elem.type.value,
+            date: new Date().toLocaleDateString(),
             ...this.form.value()
         }
 
