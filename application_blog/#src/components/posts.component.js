@@ -19,12 +19,18 @@ export class PostsComponent extends Component {
 }
 
 function renderPost(post) {
+    const tag = post.type === 'news' ?
+        `<li class="tag tag-blue tag-rounded">Новость</li>` :
+        `<li class="tag tag-rounded">Заметка</li>`
+
+    const button = '<button class="button-round button-small button-primary">Сохранить</button>'
+
     return `
         <div class="panel">
             <div class="panel-head">
                 <p class="panel-title">${post.title}</p>
                 <ul class="tags">
-                    <li class="tag tag-blue tag-rounded">${post.type}</li>
+                    ${tag}
                 </ul>
             </div>
             <div class="panel-body">
@@ -32,6 +38,7 @@ function renderPost(post) {
             </div>
             <div class="panel-footer w-panel-footer">
                 <small>${post.date}</small>
+                ${button}
             </div>
         </div>`
 }
