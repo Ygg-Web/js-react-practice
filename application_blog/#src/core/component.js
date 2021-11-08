@@ -6,12 +6,22 @@ export class Component {
 
     init() {}
 
+    onShow() {
+
+    }
+
+    onHide() {
+
+    }
+
     hide() {
         this.elem.classList.add('hide')
+        this.onHide()
     }
 
     show() {
         this.elem.classList.remove('hide')
+        this.onShow()
 
     }
 }
