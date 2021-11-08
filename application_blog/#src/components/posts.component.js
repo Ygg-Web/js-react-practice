@@ -15,6 +15,10 @@ export class PostsComponent extends Component {
         console.log(posts)
     }
 
+    onHide() {
+        this.elem.innerHTML = ''
+    }
+
 
 }
 
