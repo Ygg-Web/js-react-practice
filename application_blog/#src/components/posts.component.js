@@ -10,6 +10,7 @@ export class PostsComponent extends Component {
 
     init() {
         this.elem.addEventListener('click', buttonHandler.bind(this))
+
     }
 
     async onShow() {
@@ -32,8 +33,8 @@ function renderPost(post) {
         `<li class="tag tag-rounded">Заметка</li>`
 
     const button = (JSON.parse(localStorage.getItem('favorites')) || []).includes(post.id) ?
-        `<button class="button-round button-small button-danger" data-id="${post.id}">Удалить</button>` :
-        `<button class="button-round button-small button-primary" data-id="${post.id}">Сохранить</button>`
+        `<button class="button-round button-small button-danger" data-id="${post.id}" data-post="${post.title}">Удалить</button>` :
+        `<button class="button-round button-small button-primary" data-id="${post.id}" data-post="${post.title}">Сохранить</button>`
 
     return `
         <div class="panel">
@@ -56,18 +57,22 @@ function renderPost(post) {
 function buttonHandler(event) {
     const elem = event.target
     const id = elem.dataset.id
+    const post = elem.dataset.post
 
     if (id) {
+        let posts = JSON.parse(localStorage.getItem('posts')) || []
+        console.log(posts)
         let favorites = JSON.parse(localStorage.getItem('favorites')) || []
         console.log(favorites)
 
-        if (favorites.includes(id)) {
+        if (favorites.includes(id) || posts.includes(posts)) {
             // удалить элемент
             elem.textContent = 'Сохранить'
             elem.classList.add('button-primary')
             elem.classList.remove('button-danger')
 
             favorites = favorites.filter(fId => fId !== id)
+            posts = posts.filter(fPost => fPost !== post)
         } else {
             // добавить элемент
             elem.textContent = 'Удалить'
@@ -75,7 +80,9 @@ function buttonHandler(event) {
             elem.classList.add('button-danger')
 
             favorites.push(id)
+            posts.push(post)
         }
         localStorage.setItem('favorites', JSON.stringify(favorites))
+        localStorage.setItem('posts', JSON.stringify(posts))
     }
 }
