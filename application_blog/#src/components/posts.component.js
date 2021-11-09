@@ -8,6 +8,10 @@ export class PostsComponent extends Component {
         this.loader = loader
     }
 
+    init() {
+        this.elem.addEventListener('click', buttonHandler.bind(this))
+    }
+
     async onShow() {
         this.loader.show()
         const fbData = await apiService.fetchPosts()
@@ -27,7 +31,9 @@ function renderPost(post) {
         `<li class="tag tag-blue tag-rounded">Новость</li>` :
         `<li class="tag tag-rounded">Заметка</li>`
 
-    const button = '<button class="button-round button-small button-primary">Сохранить</button>'
+    const button = `<button class="button-round button-small button-primary">Сохранить</button>`
+
+
 
     return `
         <div class="panel">
