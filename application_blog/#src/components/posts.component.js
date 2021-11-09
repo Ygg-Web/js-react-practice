@@ -63,9 +63,17 @@ function buttonHandler(event) {
 
         if (favorites.includes(id)) {
             // удалить элемент
+            elem.textContent = 'Сохранить'
+            elem.classList.add('button-primary')
+            elem.classList.remove('button-danger')
+
             favorites = favorites.filter(fId => fId !== id)
         } else {
             // добавить элемент
+            elem.textContent = 'Удалить'
+            elem.classList.remove('button-primary')
+            elem.classList.add('button-danger')
+
             favorites.push(id)
         }
         localStorage.setItem('favorites', JSON.stringify(favorites))
