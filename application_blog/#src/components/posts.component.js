@@ -31,9 +31,9 @@ function renderPost(post) {
         `<li class="tag tag-blue tag-rounded">Новость</li>` :
         `<li class="tag tag-rounded">Заметка</li>`
 
-    const button = `<button class="button-round button-small button-primary" data-id="${post.id}">Сохранить</button>`
-
-
+    const button = (JSON.parse(localStorage.getItem('favorites')) || []).includes(post.id) ?
+        `<button class="button-round button-small button-danger" data-id="${post.id}">Удалить</button>` :
+        `<button class="button-round button-small button-primary" data-id="${post.id}">Сохранить</button>`
 
     return `
         <div class="panel">
