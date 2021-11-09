@@ -18,8 +18,6 @@ export class PostsComponent extends Component {
     onHide() {
         this.elem.innerHTML = ''
     }
-
-
 }
 
 function renderPost(post) {
