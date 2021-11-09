@@ -31,7 +31,7 @@ function renderPost(post) {
         `<li class="tag tag-blue tag-rounded">Новость</li>` :
         `<li class="tag tag-rounded">Заметка</li>`
 
-    const button = `<button class="button-round button-small button-primary">Сохранить</button>`
+    const button = `<button class="button-round button-small button-primary" data-id="${post.id}">Сохранить</button>`
 
 
 
@@ -51,4 +51,23 @@ function renderPost(post) {
                 ${button}
             </div>
         </div>`
+}
+
+function buttonHandler(event) {
+    const elem = event.target
+    const id = elem.dataset.id
+
+    if (id) {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || []
+        console.log(favorites)
+
+        if (favorites.includes(id)) {
+            // удалить элемент
+            favorites = favorites.filter(fId => fId !== id)
+        } else {
+            // добавить элемент
+            favorites.push(id)
+        }
+        localStorage.setItem('favorites', JSON.stringify(favorites))
+    }
 }
