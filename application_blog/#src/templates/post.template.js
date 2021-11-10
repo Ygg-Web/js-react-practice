@@ -1,4 +1,4 @@
-export function renderPost(post) {
+export function renderPost(post, options = {}) {
     const tag = post.type === 'news' ?
         `<li class="tag tag-blue tag-rounded">Новость</li>` :
         `<li class="tag tag-rounded">Заметка</li>`
@@ -20,7 +20,7 @@ export function renderPost(post) {
          </div>
          <div class="panel-footer w-panel-footer">
              <small>${post.date}</small>
-             ${button}
+             ${options.withButton ? button : ''}
          </div>
      </div>`
 }
