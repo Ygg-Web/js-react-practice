@@ -22,7 +22,7 @@
 
      if (event.target.classList.contains('js-link')) {
          const postId = event.target.textContent
-
+         this.elem.innerHTML = ''
          this.loader.show()
 
          const post = await apiService.fetchPostsById(postId)
