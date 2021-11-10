@@ -1,8 +1,9 @@
  import { Component } from "../core/component";
-
+ import { apiService } from "../services/api.service";
  export class FavoriteComponent extends Component {
-     constructor(id) {
+     constructor(id, { loader }) {
          super(id)
+         this.loader = loader
      }
 
      init() {
@@ -16,11 +17,17 @@
      }
  }
 
- function linkClickHandler(event) {
+ async function linkClickHandler(event) {
      event.preventDefault()
 
      if (event.target.classList.contains('js-link')) {
-         console.log(event.target.textContent)
+         const postId = event.target.textContent
+
+         this.loader.show()
+
+         const post = await apiService.fetchPostsById(postId)
+         this.loader.hide()
+
      }
  }
 
