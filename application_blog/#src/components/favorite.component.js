@@ -37,7 +37,7 @@
  }
 
  function renderList(list = []) {
-     if (list.length) {
+     if (list && list.length) {
          return `
          <ul>
             ${list.map(i => `<li><a href='#' class='js-link'>${i}</a></li>`).join(' ')} 
