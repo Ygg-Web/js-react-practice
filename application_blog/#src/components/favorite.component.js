@@ -40,7 +40,7 @@
      if (list && list.length) {
          return `
          <ul>
-            ${list.map(i => `<li><a href='#' class='js-link'>${i}</a></li>`).join(' ')} 
+            ${list.map(i => `<li><a href='#' class='js-link'>${i.title}</a></li>`).join(' ')} 
          </ul>`
      }
      return `<p class="center">Пока ничего не добавлено</p>`
