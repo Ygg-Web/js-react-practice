@@ -4,9 +4,9 @@
     "description": "js native excel app",
     "main": "index.js",
     "scripts": {
-        "build": "webpack --mode production",
-        "dev": "webpack --mode development",
-        "start": "webpack-dev-server --mode development --open"
+        "build": "cross-env NODE_ENV=production webpack --mode production",
+        "dev": "cross-env NODE_ENV=development webpack --mode development",
+        "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
     },
     "keywords": [
         "js",
@@ -23,6 +23,7 @@
         "babel-loader": "^8.2.3",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^9.1.0",
+        "cross-env": "^7.0.3",
         "css-loader": "^6.5.1",
         "html-webpack-plugin": "^5.5.0",
         "mini-css-extract-plugin": "^2.4.4",
