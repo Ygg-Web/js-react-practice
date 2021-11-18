@@ -10,22 +10,21 @@ export class DomListener {
     }
 
     initDOMListeners() {
-        // console.log(this.listeners)
         this.listeners.forEach(listener => {
             const method = getMethodName(listener)
             if (!this[method]) {
                 const name = this.name || ''
                 throw new Error(`Method ${method} is not implement in ${name} Component`)
             }
-            // console.log(this[])
-            this.root.on(listener, this[method].bind(this))
-
+            this[method] = this[method].bind(this)
+            this.root.on(listener, this[method])
         })
     }
 
-    remoceDOMListeners() {
+    removeDOMListeners() {
         this.listeners.forEach(listener => {
             const method = getMethodName(listener)
+            console.log('remove', method)
             this.root.off(listener, this[method])
         })
     }
