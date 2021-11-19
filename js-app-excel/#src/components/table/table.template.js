@@ -3,9 +3,9 @@ const CODES = {
     Z: 90
 }
 
-function createCell() {
+function toCell() {
     return `
-      <div class="cell" contenteditable>3C</div>
+      <div class="cell" contenteditable></div>
       `
 }
 
@@ -15,10 +15,10 @@ function toColumn(col) {
     `
 }
 
-function createRow(content, index) {
+function createRow(index, content) {
     return `
       <div class="row">
-        <div class="row-info">${index}</div>
+        <div class="row-info">${index ? index : ''}</div>
         <div class="row-data">${content}</div>
       </div>
       `
@@ -38,10 +38,15 @@ export function createTable(rowsCount = 15) {
         .map(toColumn)
         .join('')
 
-    rows.push(createRow(cols)) // формируем шапку
+    rows.push(createRow(null, cols)) // формируем шапку
 
     for (let i = 0; i < rowsCount; i++) {
-        rows.push(createRow()) // Формируем рабочие строки
+        const cells = new Array(colsCount)
+            .fill('')
+            .map(toCell)
+            .join('')
+
+        rows.push(createRow(i + 1, cells)) // Формируем рабочие строки
     }
 
     return rows.join(' ')
