@@ -2,18 +2,19 @@ import { $ } from "../../core/dom"
 
 export class Excel {
     constructor(selector, options) {
-        this.elem = document.querySelector(selector)
+        this.elem = $(selector)
         this.components = options.components || []
     }
 
     getRoot() {
         const root = $.create('div', 'excel')
 
-        this.components.forEach(Component => {
+        this.components = this.components.map(Component => {
             const elem = $.create('div', Component.className)
             const component = new Component(elem)
-            elem.innerHTML = component.toHTML()
+            elem.html(component.toHTML())
             root.append(elem)
+            return component
         });
 
         return root
@@ -21,5 +22,7 @@ export class Excel {
 
     render() {
         this.elem.append(this.getRoot())
+
+        this.components.forEach(component => component.init());
     }
 }
