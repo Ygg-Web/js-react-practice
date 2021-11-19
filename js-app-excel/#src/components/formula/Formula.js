@@ -7,8 +7,6 @@ export class Formula extends ExcelComponent {
             name: 'Formula',
             listeners: ['input', 'click']
         })
-
-
     }
 
     toHTML() {
@@ -26,5 +24,4 @@ export class Formula extends ExcelComponent {
     onClick() {
         console.log('click!!!!')
     }
-
 }
