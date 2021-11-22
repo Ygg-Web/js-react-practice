@@ -38,6 +38,10 @@ class Dom {
         return this
     }
 
+    get data() {
+        return this.elem.dataset
+    }
+
     closest(selector) {
         return $(this.elem.closest(selector))
     }
