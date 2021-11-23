@@ -50,6 +50,10 @@ class Dom {
         return this.elem.getBoundingClientRect()
     }
 
+    findAll(selector) {
+        return this.elem.querySelectorAll(selector)
+    }
+
 }
 
 export function $(selector) {
