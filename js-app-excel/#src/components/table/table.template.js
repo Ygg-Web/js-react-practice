@@ -3,10 +3,18 @@ const CODES = {
     Z: 90
 }
 
-function toCell(_, col) {
-    return `
-      <div class="cell" data-type="resizable" data-col="${col}" contenteditable></div>
-      `
+// function toCell(row, col) {
+//     return `
+//       <div class="cell" data-type="resizable" data-col="${col}" data-row="${row}"></div>
+//       `
+// }
+
+function toCell(row) {
+    return function(_, col) {
+        return `
+        <div class="cell" data-type="resizable" contenteditable data-col="${col}" data-id="${row}:${col}"></div>
+        `
+    }
 }
 
 function toColumn(col, index) {
@@ -47,13 +55,14 @@ export function createTable(rowsCount = 15) {
 
     rows.push(createRow(null, cols)) // формируем шапку
 
-    for (let i = 0; i < rowsCount; i++) {
+    for (let row = 0; row < rowsCount; row++) {
         const cells = new Array(colsCount)
             .fill('')
-            .map(toCell)
+            // .map((_, col) => toCell(row, col))
+            .map(toCell(row))
             .join('')
 
-        rows.push(createRow(i + 1, cells)) // Формируем рабочие строки
+        rows.push(createRow(row + 1, cells)) // Формируем рабочие строки
     }
 
     return rows.join(' ')
