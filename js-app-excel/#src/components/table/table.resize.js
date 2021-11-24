@@ -22,7 +22,6 @@ export function resizeHandler(root, event) {
             const delta = e.pageY - coords.bottom
             value = coords.height + delta
             resizer.css({ bottom: -delta + 'px' })
-
         }
     }
 

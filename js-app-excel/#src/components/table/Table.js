@@ -3,7 +3,6 @@ import { resizeHandler } from "./table.resize";
 import { createTable } from "./table.template";
 import { shouldResize } from "./table.functions";
 
-
 export class Table extends ExcelComponent {
     static className = 'excel__table'
     constructor(root) {
@@ -20,6 +19,4 @@ export class Table extends ExcelComponent {
             resizeHandler(this.root, event)
         }
     }
-
-
 }
