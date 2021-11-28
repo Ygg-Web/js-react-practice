@@ -1,7 +1,6 @@
 export class Emitter {
     constructor() {
         this.listeners = {}
-
     }
 
     emit(event, ...args) {
@@ -23,7 +22,6 @@ export class Emitter {
                 this.listeners[event]
                 .filter(listener => listener !== fn)
         }
-
     }
 }
 

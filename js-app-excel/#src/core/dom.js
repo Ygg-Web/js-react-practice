@@ -86,10 +86,12 @@ class Dom {
 
     addClass(className) {
         this.elem.classList.add(className)
+        return this
     }
 
     removeClass(className) {
         this.elem.classList.remove(className)
+        return this
     }
 
     focus() {
