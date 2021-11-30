@@ -10,7 +10,8 @@ import './scss/index.scss';
 const store = createStore(rootReducer)
 
 const excel = new Excel('#app', {
-    components: [Header, Toolbar, Formula, Table]
+    components: [Header, Toolbar, Formula, Table],
+    store
 })
 
 excel.render()
