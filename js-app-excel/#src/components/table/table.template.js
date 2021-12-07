@@ -4,16 +4,22 @@ const CODES = {
 }
 const DEFAULT_WIDTH = 120
 
-// function toCell(row, col) {
-//     return `
-//       <div class="cell" data-type="resizable" data-col="${col}" data-row="${row}"></div>
-//       `
-// }
+function getWidth(state, index) {
+    return (state[index] || DEFAULT_WIDTH) + 'px'
+}
 
-function toCell(row) {
+function toCell(state, row) {
     return function(_, col) {
+        const width = getWidth(state.colState, col)
         return `
-        <div class="cell" contenteditable data-col="${col}" data-type="cell" data-id="${row}:${col}"></div>
+        <div 
+        class="cell" 
+        contenteditable 
+        data-col="${col}" 
+        data-type="cell" 
+        data-id="${row}:${col}"
+        style="width: ${width}"
+        ></div>
         `
     }
 }
@@ -44,11 +50,6 @@ function toChar(_, index) {
     return String.fromCharCode(CODES.A + index)
 }
 
-function getWidth(state, index) {
-    return (state[index] || DEFAULT_WIDTH) + 'px'
-}
-
-
 function withWidthFrom(state) {
     return function(col, index) {
         return {
@@ -76,7 +77,7 @@ export function createTable(rowsCount = 15, state = {}) {
         const cells = new Array(colsCount)
             .fill('')
             // .map((_, col) => toCell(row, col))
-            .map(toCell(row))
+            .map(toCell(state, row))
             .join('')
 
         rows.push(createRow(row + 1, cells)) // Формируем рабочие строки
