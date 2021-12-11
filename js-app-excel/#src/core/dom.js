@@ -16,7 +16,7 @@ class Dom {
             this.elem.textContent = text
             return this
         }
-        if (this.elem.tagName.toLowerCase === 'input') {
+        if (this.elem.tagName.toLowerCase() === 'input') {
             return this.elem.value.trim()
         }
         return this.elem.textContent.trim()
