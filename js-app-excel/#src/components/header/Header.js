@@ -2,6 +2,7 @@ import { ExcelComponent } from "../../core/ExcelComponent";
 import { $ } from "../../core/dom";
 import { changeTitle } from "../../redux/actions";
 import { defaultTitle } from "../../constants";
+import { debounce } from "../../core/utils";
 export class Header extends ExcelComponent {
     static className = 'excel__header'
     constructor(root, options) {
@@ -10,6 +11,10 @@ export class Header extends ExcelComponent {
             listeners: ['input'],
             ...options
         })
+    }
+
+    prepare() {
+        this.onInput = debounce(this.onInput, 300)
     }
 
     toHTML() {
@@ -29,7 +34,6 @@ export class Header extends ExcelComponent {
 
     onInput(event) {
         const target = $(event.target)
-        console.log('text', $(event.target).text())
         this.$dispatch(changeTitle(target.text()))
     }
 }
