@@ -12,11 +12,11 @@ class Dom {
     }
 
     text(text) {
-        if (typeof text === 'string') {
+        if (typeof text !== 'undefined') {
             this.elem.textContent = text
             return this
         }
-        if (this.elem.tagName.toLowerCase === 'input') {
+        if (this.elem.tagName.toLowerCase() === 'input') {
             return this.elem.value.trim()
         }
         return this.elem.textContent.trim()
@@ -73,6 +73,13 @@ class Dom {
         Object.keys(styles).forEach(key => this.elem.style[key] = styles[key])
     }
 
+    getStyles(styles = []) {
+        return styles.reduce((res, s) => {
+            res[s] = this.elem.style[s]
+            return res
+        }, {})
+    }
+
     id(parse) {
         if (parse) {
             const parsed = this.id().split(':')
@@ -97,6 +104,14 @@ class Dom {
     focus() {
         this.elem.focus()
         return this
+    }
+
+    attr(name, value) {
+        if (value) {
+            this.elem.setAttribute(name, value)
+            return this
+        }
+        return this.elem.getAttribute(name)
     }
 }
 
