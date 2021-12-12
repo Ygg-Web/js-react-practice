@@ -12,7 +12,7 @@ class Dom {
     }
 
     text(text) {
-        if (typeof text === 'string') {
+        if (typeof text !== 'undefined') {
             this.elem.textContent = text
             return this
         }
@@ -104,6 +104,14 @@ class Dom {
     focus() {
         this.elem.focus()
         return this
+    }
+
+    attr(name, value) {
+        if (value) {
+            this.elem.setAttribute(name, value)
+            return this
+        }
+        return this.elem.getAttribute(name)
     }
 }
 
