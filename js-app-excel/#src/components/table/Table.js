@@ -30,7 +30,9 @@ export class Table extends ExcelComponent {
         this.selectCell(this.root.find('[data-id="0:0"]'))
 
         this.$on('formula:input', value => {
-            this.selection.current.attr('data-value', value).text(parse(value))
+            this.selection.current
+                .attr('data-value', value)
+                .text(parse(value))
             this.updataTextInStore(value)
         })
 
@@ -54,7 +56,6 @@ export class Table extends ExcelComponent {
         const styles = cell.getStyles(Object.keys(defaultStyles))
         console.log('Styles to dispatch', styles)
         this.$dispatch(actions.changeStyles(styles))
-            // console.log(styles)
     }
 
     async resizeTable(event) {

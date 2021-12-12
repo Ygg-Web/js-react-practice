@@ -38,10 +38,6 @@ export class Formula extends ExcelComponent {
         this.$emit('formula:input', text)
     }
 
-    onClick() {
-        console.log('click!!!!')
-    }
-
     onKeydown(event) {
         const keys = ['Enter', 'Tab']
         if (keys.includes(event.key)) {

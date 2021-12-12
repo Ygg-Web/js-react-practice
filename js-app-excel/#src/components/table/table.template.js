@@ -96,7 +96,6 @@ export function createTable(rowsCount = 15, state = {}) {
             // .map((_, col) => toCell(row, col))
             .map(toCell(state, row))
             .join('')
-
         rows.push(createRow(row + 1, cells, state.rowState)) // Формируем рабочие строки
     }
 
