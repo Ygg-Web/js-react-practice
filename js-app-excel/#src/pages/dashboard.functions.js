@@ -1,7 +1,7 @@
-function toHTML() {
+function toHTML(state) {
     return `
   <li class="db__record">
-    <a href="#">Таблица №1</a>
+    <a href="#">${state.title}</a>
     <strong>12.12.2021</strong>
   </li>
   `
