@@ -1,7 +1,11 @@
-function toHTML(state) {
+import { storage } from '../core/utils'
+
+function toHTML(key) {
+    const model = storage(key)
+    const id = key.split(':')[1]
     return `
   <li class="db__record">
-    <a href="#">${state.title}</a>
+    <a href="#excel/${id}">${model.title}</a>
     <strong>12.12.2021</strong>
   </li>
   `
