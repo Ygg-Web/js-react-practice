@@ -16,13 +16,13 @@ export class ExcelPage extends Page {
     getRoot() {
         const params = this.params ? this.params : Date.now().toString()
 
-        console.log(this.params)
+
         const state = storage(storageName(params))
         const initialState = normalizeInitialState(state)
         const store = createStore(rootReducer, initialState)
 
         const stateListener = debounce(state => {
-            console.log('App State', state)
+            // console.log('App State', state)
             storage(storageName(params), state)
         }, 300)
 
