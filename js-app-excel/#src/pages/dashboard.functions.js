@@ -18,7 +18,6 @@ function getAllKeys() {
     const keys = []
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i)
-            // console.log('key', key)
         if (!key.includes('excel')) {
             continue
         }
@@ -31,11 +30,8 @@ function getAllKeys() {
 export function createRecordsTable() {
     const keys = getAllKeys()
 
-    // console.log('keys', keys)
-
     if (!keys.length) {
         return `<p>Пока не создано ни одной таблицы</p>`
-
     }
 
     return `

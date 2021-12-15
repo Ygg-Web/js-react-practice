@@ -47,7 +47,6 @@ export class Header extends ExcelComponent {
         }
     }
 
-
     onInput(event) {
         const target = $(event.target)
         this.$dispatch(changeTitle(target.text()))

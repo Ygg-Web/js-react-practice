@@ -28,7 +28,6 @@ export function rootReducer(state, action) {
     }
 }
 
-
 function value(state, field, action) {
     const val = state[field] || {}
     val[action.data.id] = action.data.value

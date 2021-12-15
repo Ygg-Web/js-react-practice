@@ -47,7 +47,6 @@ export class Table extends ExcelComponent {
                 ids: this.selection.selectedIds
             }))
         })
-
     }
 
     selectCell(cell) {
@@ -65,7 +64,6 @@ export class Table extends ExcelComponent {
         } catch (e) {
             console.warn('Resize error', e.message)
         }
-
     }
 
     onMousedown(event) {
