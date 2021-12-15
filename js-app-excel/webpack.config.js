@@ -3,6 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin')
 const HTMLPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const webpack = require('webpack')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
@@ -10,14 +11,14 @@ const isDev = !isProd
 const filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`
 const jsLoaders = () => {
     const loaders = [{
-        loader: 'babel-loader',
-        options: {
-            presets: ['@babel/preset-env']
-        }
-    }]
-    // if (isDev) {
-    //     loaders.push('eslint-loader')
-    // }
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env']
+            }
+        }]
+        // if (isDev) {
+        //     loaders.push('eslint-loader')
+        // }
     return loaders
 }
 
@@ -55,6 +56,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: filename('[name].css')
         }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+        })
     ],
     resolve: {
         extensions: ['.js'],
@@ -64,8 +68,7 @@ module.exports = {
         }
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /node_modules/,
                 use: jsLoaders()

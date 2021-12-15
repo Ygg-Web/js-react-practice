@@ -3,7 +3,6 @@ import { ExcelComponent } from "./ExcelComponent";
 export class ExcelStateComponent extends ExcelComponent {
     constructor(...args) {
         super(...args)
-
     }
 
     get template() {
