@@ -15,7 +15,7 @@ describe('createStore:', () => {
     let store
 
     beforeEach(() => {
-        store = createStore(reducer)
+        store = createStore(reducer, initialState)
     })
 
     test('should return store object', () => {
@@ -27,5 +27,19 @@ describe('createStore:', () => {
 
     test('should return object as a state', () => {
         expect(store.getState()).toBeInstanceOf(Object)
+    })
+
+    test('should return default state', () => {
+        expect(store.getState()).toEqual(initialState)
+    })
+
+    test('should change state if actions exists', () => {
+        store.dispatch({ type: 'ADD' })
+        expect(store.getState().count).toBe(1)
+    })
+
+    test('should NOT change state if actions dont exists', () => {
+        store.dispatch({ type: 'NOT_EXISTING_ACTION' })
+        expect(store.getState().count).toBe(0)
     })
 })
