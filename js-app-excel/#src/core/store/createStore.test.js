@@ -13,9 +13,11 @@ const reducer = (state = initialState, action) => {
 
 describe('createStore:', () => {
     let store
+    let handler
 
     beforeEach(() => {
         store = createStore(reducer, initialState)
+        handler = jest.fn()
     })
 
     test('should return store object', () => {
@@ -41,5 +43,13 @@ describe('createStore:', () => {
     test('should NOT change state if actions dont exists', () => {
         store.dispatch({ type: 'NOT_EXISTING_ACTION' })
         expect(store.getState().count).toBe(0)
+    })
+
+    test('should call subscriber function', () => {
+        store.subscribe(handler)
+
+        store.dispatch({ type: 'ADD' })
+        expect(handler).toHaveBeenCalled()
+        expect(handler).toHaveBeenCalledWith(store.getState())
     })
 })
