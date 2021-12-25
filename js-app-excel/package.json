@@ -4,6 +4,8 @@
     "description": "js native excel app",
     "main": "index.js",
     "scripts": {
+        "test": "jest",
+        "test:watch": "jest --watch",
         "build": "cross-env NODE_ENV=production webpack --mode production",
         "dev": "cross-env NODE_ENV=development webpack --mode development",
         "start": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
@@ -30,6 +32,7 @@
         "eslint-config-google": "^0.14.0",
         "eslint-loader": "^4.0.2",
         "html-webpack-plugin": "^5.5.0",
+        "jest": "^27.4.5",
         "mini-css-extract-plugin": "^2.4.4",
         "node-sass": "^6.0.1",
         "sass": "^1.43.4",
