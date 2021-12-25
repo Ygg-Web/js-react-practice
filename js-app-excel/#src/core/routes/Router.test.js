@@ -1,3 +1,6 @@
+/**
+ * @jest-environment jsdom
+ */
 import { Router } from './Router'
 import { Page } from '../Page'
 
@@ -18,6 +21,7 @@ describe('Router:', () => {
 
     beforeEach(() => {
         $root = document.createElement('div')
+
         router = new Router($root, {
             dashboard: DashboardPage,
             excel: ExcelPage
@@ -25,6 +29,11 @@ describe('Router:', () => {
     })
 
     test('should be defined', () => {
-        expect(roter).toBeDefined()
+        expect(router).toBeDefined()
+    })
+
+    test('should render Dashboard Page', () => {
+        router.changePageHandler()
+        expect($root.innerHTML).toBe('<div>dashboard</div>')
     })
 })
