@@ -4,7 +4,6 @@
 import { Router } from './Router'
 import { Page } from '../Page'
 
-
 class DashboardPage extends Page {
     getRoot() {
         const root = document.createElement('div')
@@ -13,7 +12,6 @@ class DashboardPage extends Page {
     }
 }
 class ExcelPage extends Page {}
-
 
 describe('Router:', () => {
     let router
