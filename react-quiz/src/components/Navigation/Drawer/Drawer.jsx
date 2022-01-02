@@ -34,7 +34,6 @@ class Drawer extends Component{
         </nav>
         {this.props.isOpen ? <Backdrop onClick={this.props.onClose}/> : null}
       </React.Fragment>
-      
     )
   }
 }
