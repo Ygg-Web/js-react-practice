@@ -4,6 +4,7 @@ import Button from '../../components/UI/Button/Button'
 import { createContol } from '../../form/formFramework'
 import Input from '../../components/UI/Input/Input'
 import Auxilary from '../../hoc/Layout/Auxilary'
+import Select from '../../components/UI/Select/Select'
 
 function createOptionControl(number) {
   return createContol({
@@ -30,6 +31,7 @@ class QuizCreator extends Component {
 
   state = {
     quiz: [],
+    rightAnswerId: 1,
     formControls: createFormControls()
   }
 
@@ -73,7 +75,23 @@ class QuizCreator extends Component {
     })
   }
 
+  selectChangeHandler = (event) => {
+    this.setState({rightAnswerId: +event.target.value})
+  }
+
   render() {
+    const select = <Select
+      label='Выберите правильный ответ'
+      value={this.state.rightAnswerId}
+      onChange={this.selectChangeHandler}
+      options={[
+        {text: 1, value: 1},
+        {text: 2, value: 2},
+        {text: 3, value: 3},
+        {text: 4, value: 4},
+      ]}
+    />
+
     return (
       <div className={classes.QuizCreator}>
         <div>
@@ -82,7 +100,7 @@ class QuizCreator extends Component {
           <form onSubmit={this.onSubmitHandler}>
               {this.renderControls()}
 
-              <select></select>
+              {select}
 
               <Button 
                 type='primary'
