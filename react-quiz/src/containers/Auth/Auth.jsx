@@ -43,13 +43,9 @@ class Auth extends Component{
     }
   }
 
-  loginHandler = () => {
+  loginHandler = () => {}
 
-  }
-
-  registerHandler = () => {
-
-  }
+  registerHandler = () => {}
 
   submitHandler = (e) => {
     e.preventDefault()
