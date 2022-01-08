@@ -75,7 +75,7 @@ class Quiz extends Component {
   }
 
   async componentDidMount () {
-    console.log(this.props.location.state.from.search)
+    // console.log(this.props.location.state.from.search)
     // try { 
     //   const response = await axios.get(`/quizes/${this.props.location.state.from.search.id}.json`)
     //   const quiz = response.data
@@ -90,8 +90,6 @@ class Quiz extends Component {
   }
 
   render(){
-    console.log(this.props.location)
-
     return(
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
