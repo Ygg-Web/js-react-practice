@@ -1,9 +1,48 @@
-.test{
-  font-size: 100px;
-  border: 1px solid blue;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 body {
-  background: #000;
+
+}
+
+.startApp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  color: #fff;
+  // background: linear-gradient(90deg,#000000,#230b10,#331016,#230b10,#000000); /* Chrome 10-25, Safari 5.1-6 */ background: linear-gradient(90deg,#000000,#230b10,#331016,#230b10,#000000); 
+  background: #1a1a1a;
+}
+
+.startApp__inner{
+  max-width: 600px;
+  .startApp__title{
+
+  }
+  .startApp__subtite{
+
+  }
+  .startApp__btn{
+    width: 280px;
+    height: 50px;
+    color: #fff;
+    background:rgb(145, 39, 39);
+    border: 0;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    font-size: 27px;
+  }
+  .startApp__text{
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: underline yellow;
+    
+  }
 }
