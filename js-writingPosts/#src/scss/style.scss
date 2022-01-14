@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
-
 body {
-
+font-family: 'Montserrat', sans-serif;
 }
 
+// Start Page
 .startApp{
   display: flex;
   justify-content: center;
@@ -16,33 +16,43 @@ body {
   text-align: center;
   height: 100vh;
   color: #fff;
-  // background: linear-gradient(90deg,#000000,#230b10,#331016,#230b10,#000000); /* Chrome 10-25, Safari 5.1-6 */ background: linear-gradient(90deg,#000000,#230b10,#331016,#230b10,#000000); 
   background: #1a1a1a;
 }
 
 .startApp__inner{
   max-width: 600px;
   .startApp__title{
-
+    line-height: 2rem;
+    text-transform: uppercase;
   }
   .startApp__subtite{
-
+    margin: 15px 0;
+    font-weight: 700;
+    text-transform: uppercase;
   }
   .startApp__btn{
-    width: 280px;
+    width: 250px;
     height: 50px;
-    color: #fff;
+    color: yellow;
+    font-weight: 700;
     background:rgb(145, 39, 39);
-    border: 0;
+    border: 3px solid yellow;
     border-radius: 10px;
+    text-align: center;
     margin: 20px;
-    padding: 10px;
     font-size: 27px;
+    cursor: pointer;
   }
   .startApp__text{
-    font-weight: 700;
+    // width: 500px;
+    font-weight: 600;
     font-size: 1.2rem;
-    text-decoration: underline yellow;
-    
+  }
+  hr {
+    margin-top: 30px;
+    border: none;
+    color: yellow;
+    background-color: yellow;
+    height: 2px;
   }
 }
