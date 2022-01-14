@@ -33,18 +33,9 @@ background: #1a1a1a;
   .startApp__btn{
     width: 250px;
     height: 50px;
-    color: #ebed11;
-    font-weight: 700;
-    background:rgb(145, 39, 39);
-    border: 3px solid #ebed11;
-    border-radius: 10px;
-    text-align: center;
-    margin: 20px;
-    font-size: 27px;
-    cursor: pointer;
+    text-transform: uppercase;
   }
   .startApp__text{
-    // width: 500px;
     font-weight: 600;
     font-size: 1.2rem;
   }
@@ -57,11 +48,33 @@ background: #1a1a1a;
   }
 }
 
+.btn{
+  color: #ebed11;
+  font-weight: 700;
+  background:rgb(145, 39, 39);
+  border: 3px solid #ebed11;
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  &__header{
+    width: 250px;
+    height: 50px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 40px;
+  }
+}
 .container {
-
+  max-width: 1900px;
 }
 .wrapper{
   position: relative;
+  // overflow-x: hidden;
+
+  
+  // Sidebar
 }
 .sidebar {
   position: absolute;
@@ -75,6 +88,7 @@ background: #1a1a1a;
   justify-content: center;
 
 		&__nav {
+      position: relative;
       height: 50%;
       display: flex;
       flex-direction: column;
@@ -83,20 +97,17 @@ background: #1a1a1a;
 		}
 }
 .nav {
-    &__links{
-      position: relative;
-    }
 		&__link {
       text-decoration: none;
       color:#000;
-      font-weight: 600;
+      font-weight: 700;
+      font-size: 1.5rem;
       padding: 10px;
       margin: 10px;
       text-transform: uppercase;
      
 
       &:hover{
-        // text-decoration:underline red;
         border: 4px solid red;
         border-radius: 5px;
         padding: 6px;
@@ -110,3 +121,67 @@ background: #1a1a1a;
       color: red;
     }
 }
+
+// MainPage
+.main {
+  position: relative;
+  top: 0;
+  left: 300px;
+  color: #fff;
+  padding: 50px  40px 0;
+  max-width: 1200px;
+  &__header {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .title{
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 3rem;
+    }
+    .subtitle{
+      font-size: 1rem;
+      font-weight: 700;
+    }
+  }
+
+  &__body {
+    padding: 40px 0 0 0;
+  }
+}
+.items {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+
+  &__title {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+
+  &__content {
+    font-size: 1.5rem;
+    margin: 20px 0 0 0;
+  }
+  hr{
+    margin: 30px 0;
+    border: none;
+    color: #ebed11;
+    background-color: #ebed11;
+    height: 4px;
+  }
+}
+.offer {
+
+  &__items {
+  }
+
+  &__item {
+  }
+}
+.logo {
+}
+.info {
+}
+
