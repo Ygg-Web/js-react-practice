@@ -6,6 +6,8 @@
 
 body {
 font-family: 'Montserrat', sans-serif;
+color: #fff;
+background: #1a1a1a;
 }
 
 // Start Page
@@ -15,8 +17,6 @@ font-family: 'Montserrat', sans-serif;
   align-items: center;
   text-align: center;
   height: 100vh;
-  color: #fff;
-  background: #1a1a1a;
 }
 
 .startApp__inner{
@@ -33,10 +33,10 @@ font-family: 'Montserrat', sans-serif;
   .startApp__btn{
     width: 250px;
     height: 50px;
-    color: yellow;
+    color: #ebed11;
     font-weight: 700;
     background:rgb(145, 39, 39);
-    border: 3px solid yellow;
+    border: 3px solid #ebed11;
     border-radius: 10px;
     text-align: center;
     margin: 20px;
@@ -51,8 +51,62 @@ font-family: 'Montserrat', sans-serif;
   hr {
     margin-top: 30px;
     border: none;
-    color: yellow;
-    background-color: yellow;
+    color: #ebed11;
+    background-color: #ebed11;
     height: 2px;
   }
+}
+
+.container {
+
+}
+.wrapper{
+  position: relative;
+}
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: #ebed11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+		&__nav {
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+		}
+}
+.nav {
+    &__links{
+      position: relative;
+    }
+		&__link {
+      text-decoration: none;
+      color:#000;
+      font-weight: 600;
+      padding: 10px;
+      margin: 10px;
+      text-transform: uppercase;
+     
+
+      &:hover{
+        // text-decoration:underline red;
+        border: 4px solid red;
+        border-radius: 5px;
+        padding: 6px;
+        background: red;
+      }
+		}
+    &__close{
+      position: absolute;
+      top: 10px;
+      right: -20px;
+      color: red;
+    }
 }
