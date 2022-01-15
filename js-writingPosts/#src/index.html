@@ -119,7 +119,7 @@
     <p>© 2022 «PostApp»</p>
  </footer>
 
-  <!-- Posts -->
+  <!-- Create Posts -->
       <div class="create">
          <div class="create__inner">
             <div class="title">Создание поста</div>
@@ -161,28 +161,78 @@
                         <div class="file__preview"></div>
                     </div>
                 </div>
-                
+                <button type="submit" class="btn btn-form draft">Добавить в черновик</button>
                 <button type="submit" class="btn btn-form">Создать пост</button>
             </form>
          </div>
       </div>
 
+<!-- Post -->
+
+<div class="post">
+    <div class="post__inner">
+        <div class="title">Ваши подготовленные публикации</div>
+        <div class="post__item">
+            <div class="item__header">
+                <div class="header__title">Lorem, ipsum dolor.</div>
+                <small>Тематика</small>
+            </div>
+            <div class="item__body">
+                <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
+            </div>
+            <div class="item__footer">
+                <small>Time posting</small>
+                <button>Удалить</button>
+                <button>Нравится</button>
+                <button>Опубликовано</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
   <!-- Favorite -->
-      <!-- <div class="favorite">
-          <div class="title"></div>
+      <div class="favorite">
+          <div class="favorite__inner">
+            <div class="favorite__title">Избранные посты</div>
 
-          <div class="favorite__cards">
-              <div class="favorite__card">
-                  <div class="date"></div>
-                  <div class="text"></div>
-                  <div class="theme"></div>
-                  <div class="more"></div>
-              </div>
+            <div class="favorite__card">
+               <div class="card__header">
+                    <div class="title">Lorem, ipsum dolor.</div>
+                    <small>Time Posting</small>
+               </div>
+                <div class="card__body">
+                    <div class="text">Lorem ipsum dolor sit amet......</div>
+                    <div class="theme"></div>
+                </div>
+                <div class="card__footer">
+                    <div class="more">Подробнее...</div>
+                    <button>Удалить из избранного</button>
+                </div>
+            </div>
           </div>
-      </div> -->
-  <!-- Draft -->
+      </div>
 
+      
+  <!-- Draft -->
+  <div class="draft">
+    <div class="draft__inner">
+        <div class="title">Черновик с отложенными постами</div>
+        <div class="draft__item">
+            <div class="item__header">
+                <div class="header__title">Lorem, ipsum dolor.</div>
+                <small>Тематика</small>
+            </div>
+            <div class="item__body">
+                <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
+            </div>
+            <div class="item__footer">
+                <button>Удалить</button>
+                <button>Редактировать</button>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 </body>
 </html>
