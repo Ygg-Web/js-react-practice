@@ -18,7 +18,6 @@
         <div class="startApp__subtite">Становись продуктивнее</div>
         <button class="startApp__btn btn">Начать</button>
         <div class="startApp__text">Планируйте контент заранее<br> и публикуйте в подходящее время</div>
-        <hr>
       </div>
     </header>
 
@@ -48,32 +47,27 @@
         <div class="items">
             <div class="item">
                 <div class="item__title">Посты</div>
-                <div class="item__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, culpa.</div>
-                <hr>
+                <div class="item__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, culpa.</div>               
             </div>
 
             <div class="item">
                 <div class="item__title">Избранное</div>
-                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>
-                <hr>
+                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>               
             </div>
 
             <div class="item">
                 <div class="item__title">Публикации</div>
-                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>
-                <hr>
+                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>              
             </div>
 
             <div class="item">
                 <div class="item__title">Черновики</div>
-                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>
-                <hr>
+                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>               
             </div>
 
             <div class="item">
                 <div class="item__title">Категории</div>
                 <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>
-                <hr>
             </div>
         </div>
         <div class="features">
@@ -122,33 +116,56 @@
  </div>
 
  <footer class="footer">
-    <div class="footer__inner">
-        <p>© 2022 «PostApp»</p>
-    </div>
+    <p>© 2022 «PostApp»</p>
  </footer>
 
   <!-- Posts -->
-      <!-- <div class="post">
-          <div class="title"></div>
-          <form class="form">
-              <label for=""></label>
-              <input type="text">
+      <div class="create">
+         <div class="create__inner">
+            <div class="title">Создание поста</div>
+            <form id="form">
 
-              <label for=""></label>
-              <textarea name="" id="" cols="30" rows="10"></textarea>
+                <div class="form__item">
+                    <label class="form__label">Название поста</label>
+                    <input type="text" placeholder="Введите название">
+                </div>
+  
+                <div class="form__item">
+                    <label class="form__label">Текст</label>
+                    <textarea name="fulltext" placeholder="Введите текс поста"></textarea>
+                </div>
+    
+                <div class="form__item">
+                   <div class="form__label">Тематика поста</div>
+                   <select name="type">
+                        <option value="scientific">Научное</option>
+                        <option value="fun">Развлекательное</option>
+                        <option value="beauty">Мода и стиль</option>
+                        <option value="travels">Путешествия</option>
+                        <option value="psychology">Психология</option>
+                        <option value="ecomony">Экономика</option>
+                        <option value="philosophy">Философия</option>
+                        <option value="sport">Спорт</option>
+                        <option value="food" selected>Еда</option>
+                        <option value="othe">Разное</option>
+                    </select>
+                </div>
 
-              <div class="theme">
-
-              </div>
-              <select name="" id="">
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
-              </select>
-              
-              <button class="btn btn-form">Создать пост</button>
-          </form>
-      </div> -->
+                <div class="form__item">
+                    <div class="form__label">Прикрепить изображение</div>
+                    <div class="file">
+                        <div class="file__item">
+                            <input type="file" name="image" class="file__input" accept=".jpg, .png, .gif">
+                            <div class="file_button">Выбрать</div>
+                        </div>
+                        <div class="file__preview"></div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-form">Создать пост</button>
+            </form>
+         </div>
+      </div>
 
 
   <!-- Favorite -->
