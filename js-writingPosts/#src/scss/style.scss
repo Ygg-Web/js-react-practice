@@ -7,7 +7,7 @@
 $yellow: #ebed11;
 $red: rgb(145, 39, 39);
 $width-sidebar: 350px;
-$btn-color: #1e91ea;
+$blue: #1e91ea;
 
 body {
 font-family: 'Montserrat', sans-serif;
@@ -251,7 +251,8 @@ background: #1a1a1a;
       width: 600px;
       padding: 15px;
       border: 2px solid $yellow;
-      border-radius: 5px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px #7a956b;
       .title{
        text-align: center;
       }
@@ -339,7 +340,7 @@ select{
   min-width: 200px;
   font-size: 1rem;
   color: #fff;
-  background: $btn-color;
+  background: $blue;
   border: none;
 }
 
@@ -350,4 +351,120 @@ select{
   margin: 20px auto;
   font-size: rem;
   text-transform: uppercase;
+}
+
+.post {
+padding: 50px 30px 20px;
+width: 100%;
+  &__inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__item {
+    margin: 40px 0;
+    padding: 15px 30px;
+    border: 3px solid $blue;
+    border-radius: 10px;
+    width: 700px;
+    box-shadow: 0 0 25px #7a956b;
+  }
+}
+
+.item__header {
+  margin: 0 0 20px 0;
+}
+
+.header__title{
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.item__body {
+  margin: 10px 0 30px 0;
+}
+
+.body__text{
+  font-size: 1.2rem;
+}
+.body__image{
+  display: inline-block;
+  max-width: 300px;
+  padding: 10px 0 0 0;
+  img{
+    max-width: 100%;
+  }
+}
+
+.item__footer {
+  .footer__btn{
+    margin: 10px 0 0 0;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+}
+
+.btn__delete, .btn__like, .btn__post{
+  height: 25px;
+  width: 125px;
+  font-size: 1rem;
+  color: #fff;
+  background: $blue;
+  border: none;
+  margin: 15px 0 0 0;
+}
+
+.favorite {
+  padding: 50px 30px 20px;
+  width: 100%;
+  &__inner {
+    .title{
+      text-align: center;
+    }
+  }
+
+  &__cards{
+    padding: 50px 0 30px 0;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+  }
+
+  &__card {
+    width: 350px;
+    margin: 20px;
+    padding: 10px 20px;
+    border: 3px solid $blue;
+    border-radius: 10px;
+    box-shadow: 0 0 25px #7a956b;
+    cursor: pointer;
+  }
+}
+
+.card__header{
+  margin: 0 0 10px 0;
+} 
+  
+.card__body {
+  margin: 10px 0 20px 0;
+}
+
+.card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .card__open{
+    font-size: .8rem;
+  }
+  .card__delete{
+    font-size: 1.5rem;
+    i{
+      color: $blue;
+      cursor: pointer;
+    }
+  }
 }

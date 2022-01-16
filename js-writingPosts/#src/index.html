@@ -198,7 +198,7 @@
 
 <!-- Post -->
 
-<!-- <div class="post">
+<div class="post">
     <div class="post__inner">
         <div class="title">Ваши подготовленные публикации</div>
         <div class="post__item">
@@ -208,12 +208,15 @@
             </div>
             <div class="item__body">
                 <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
+                <div class="body__image"></div>
             </div>
             <div class="item__footer">
                 <small>Time posting</small>
-                <button>Удалить</button>
-                <button>Нравится</button>
-                <button>Опубликовано</button>
+                <div class="footer__btn">
+                    <button class="btn__delete btn">Удалить</button>
+                    <button class="btn__like btn">Нравится</button>
+                    <button class="btn__post btn">Опубликовано</button>
+                </div>
             </div>
         </div>
     </div>
@@ -221,30 +224,35 @@
 
 
   <!-- Favorite -->
-      <!-- <div class="favorite">
+      <div class="favorite">
           <div class="favorite__inner">
-            <div class="favorite__title">Избранные посты</div>
+            <div class="title">Избранные посты</div>
 
-            <div class="favorite__card">
-               <div class="card__header">
-                    <div class="title">Lorem, ipsum dolor.</div>
-                    <small>Time Posting</small>
-               </div>
-                <div class="card__body">
-                    <div class="text">Lorem ipsum dolor sit amet......</div>
-                    <div class="theme"></div>
-                </div>
-                <div class="card__footer">
-                    <div class="more">Подробнее...</div>
-                    <button>Удалить из избранного</button>
-                </div>
+            <div class="favorite__cards">
+
+                <div class="favorite__card">
+                    <div class="card__header">
+                         <div class="header__title">Lorem, ipsum dolor.</div>
+                         <small>Time Posting</small>
+                    </div>
+                     <div class="card__body">
+                         <div class="body__text">Lorem ipsum dolor sit amet......</div>
+                         <small>Тематика</small>
+                     </div>
+                     <div class="card__footer">
+                         <div class="card__open">Подробнее...</div>
+                         <div class="card__delete"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                     </div>
+                 </div>
+
             </div>
+            
           </div>
-      </div> -->
+      </div>
 
       
   <!-- Draft -->
-  <!-- <div class="draft">
+<!-- <div class="draft"> 
     <div class="draft__inner">
         <div class="title">Черновик с отложенными постами</div>
         <div class="draft__item">
@@ -262,6 +270,6 @@
         </div>
     </div>
 </div> -->
-<!-- </div> --> 
+
 </body>
 </html>
