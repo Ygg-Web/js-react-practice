@@ -15,7 +15,7 @@ color: #fff;
 background: #1a1a1a;
 }
 
-// Start Page
+//--- Start Page-----------------------------------------------------------------------------------
 .startApp{
   display: flex;
   justify-content: center;
@@ -51,6 +51,7 @@ background: #1a1a1a;
   }
 }
 
+// ----Buttons-----------------------------------------------------------------------------------
 .btn{
   color: $yellow;
   font-weight: 700;
@@ -60,17 +61,49 @@ background: #1a1a1a;
   text-align: center;
   font-size: 1.5rem;
   cursor: pointer;
-  &__header{
+  &-header{
     width: 250px;
     height: 50px;
     text-transform: uppercase;
     font-weight: 700;
     margin: 60px;
   }
+  &-file, &-draft{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30px;
+    min-width: 200px;
+    font-size: 1rem;
+    color: #fff;
+    background: $blue;
+    border: none;
+  }
+  &-create{
+    background: #e16e15;
+    color: #fff;
+    border: none;
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    margin: 20px auto;
+    font-size: rem;
+    text-transform: uppercase;
+  }
+  &-delete, &-like, &-post{
+    height: 25px;
+    width: 125px;
+    font-size: 1rem;
+    color: #fff;
+    background: $blue;
+    border: none;
+    margin: 15px 0 0 0;
+  }
 }
 
 .container {
   max-width: 1400px;
+  margin: 0 auto;
 }
 
 .main{
@@ -78,7 +111,7 @@ background: #1a1a1a;
   overflow-x: hidden;
   width: 100%;
 }
-
+// -----SideBar----------------------------------------------------------------------------
 .sidebar {
   position: fixed;
   top: 0;
@@ -127,9 +160,14 @@ background: #1a1a1a;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     margin: 15px 0;
     transition: background .2s ease-in-out;
+    color: #000;
+    i{
+      width: 50px;
+      margin: 0 20px 0 0;
+    }
     &:hover{
       background:rgb(145, 39, 39);
       .nav__link{
@@ -147,7 +185,6 @@ background: #1a1a1a;
   }
 }
 
-
 .title{
   font-size: 2.5rem;
   font-weight: 700;
@@ -158,7 +195,7 @@ background: #1a1a1a;
   font-weight: 700;
 }
 
-// MainPage
+//----- MainPage-----------------------------------------------------------------------------
 .content {
   position: relative;
   transform:translateX($width-sidebar);
@@ -178,12 +215,13 @@ background: #1a1a1a;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    .header__title{
+      font-size: 3.5rem;
+    }
   }
-
   &__body {
     padding: 40px 0 0 0;
   }
-
   &__items {
     display: flex;
     flex-direction: column;
@@ -208,16 +246,15 @@ background: #1a1a1a;
   }
 }
 
-.top.hide{  
+.hide{  
  display: none;
 }
 
-.top.show{
+.show{
   display: block;
 }
 
 .features {
-  padding: 60px 0 100px 0;
   &__items {
     margin: 30px 0;
     display: flex;
@@ -229,15 +266,19 @@ background: #1a1a1a;
     display: flex;
     align-items: center;
     margin: 20px 0 10px;
-    .logo{
-      color: $yellow;
-    }
-    .info{
-      margin: 10px;
-      div{
-        font-size: 1.7rem;
-        margin: 5px 0;
-      }
+  }
+}
+
+.item{
+  &__logo{
+    color: $yellow;
+    font-size: 1.5rem;
+  }
+  &__info{
+    margin: 10px;
+    div{
+      font-size: 1.7rem;
+      margin: 5px 0;
     }
   }
 }
@@ -253,10 +294,10 @@ background: #1a1a1a;
       border: 2px solid $yellow;
       border-radius: 15px;
       box-shadow: 0 0 25px #7a956b;
-      .title{
-       text-align: center;
-      }
- }
+    }
+    &__title{
+      text-align: center;
+    }
 }
 
 form * {
@@ -269,7 +310,6 @@ form * {
     &__item {
       margin: 20px 10px;
     }
-
     &__label {
       display: block;
       font-size: 1.2rem;
@@ -332,27 +372,6 @@ select{
   }
 }
 
-.btn__file, .btn__draft{
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 30px;
-  min-width: 200px;
-  font-size: 1rem;
-  color: #fff;
-  background: $blue;
-  border: none;
-}
-
-.btn__create{
-  display: block;
-  width: 100%;
-  min-height: 50px;
-  margin: 20px auto;
-  font-size: rem;
-  text-transform: uppercase;
-}
-
 .post {
 padding: 50px 30px 20px;
 width: 100%;
@@ -407,23 +426,13 @@ width: 100%;
   }
 }
 
-.btn__delete, .btn__like, .btn__post{
-  height: 25px;
-  width: 125px;
-  font-size: 1rem;
-  color: #fff;
-  background: $blue;
-  border: none;
-  margin: 15px 0 0 0;
-}
-
 .favorite {
   padding: 50px 30px 20px;
   width: 100%;
   &__inner {
-    .title{
-      text-align: center;
-    }
+  }
+  &__title{
+    text-align: center;
   }
 
   &__cards{
@@ -440,31 +449,28 @@ width: 100%;
     border: 3px solid $blue;
     border-radius: 10px;
     box-shadow: 0 0 25px #7a956b;
-    cursor: pointer;
   }
 }
 
 .card__header{
   margin: 0 0 10px 0;
+  .header__title{
+    cursor: pointer;
+  }
 } 
   
 .card__body {
   margin: 10px 0 20px 0;
+  .body__text{
+    cursor: pointer;
+  }
 }
 
 .card__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  .card__open{
-    font-size: .8rem;
-  }
+  text-align: end;
   .card__delete{
     font-size: 1.5rem;
-    i{
-      color: $blue;
-      cursor: pointer;
-    }
+    color: $blue;
+    cursor: pointer;
   }
 }

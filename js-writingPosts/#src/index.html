@@ -31,22 +31,20 @@
                 <nav class="sidebar__nav"> 
                     <ul class="nav__list">
                         <li class="nav__item">
+                            <i class="fa fa-home" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Главная</a>
                         </li>
                         <li class="nav__item">
+                            <i class="fa fa-list" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Посты</a>
                         </li>
                         <li class="nav__item">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Избранное</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#" class="nav__link">Публикации</a>
-                        </li>
-                        <li class="nav__item">
+                            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Черновики</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#" class="nav__link">Категории</a>
                         </li>
                     </ul>
                 </nav>
@@ -56,12 +54,12 @@
 
 
         <div class="content active">
-            <div class="top hide">
+            <div class="top">
                 <div class="top__inner">
                     <div class="top__header">
-                        <div class="title">Используйте PostApp</div>
-                        <div class="subtitle">Планируйте публикации постов зарнее и экономьте время</div>
-                        <button class="btn__header btn">Создать пост</button>
+                        <div class="header__title title">Используйте PostApp</div>
+                        <div class="header__subtitle subtitle">Планируйте публикации постов зарнее и экономьте время</div>
+                        <button class="header__btn btn btn-header">Создать пост</button>
                     </div>
                     <div class="top__body">
                         <div class="top__items">
@@ -94,40 +92,40 @@
 
 
                     <div class="top__features">
-                        <div class="title">Все настраивается!</div>
-                        <div class="subtitle">Используйте возможности сервиса PostApp,<br> чтобы сервис подстроился под Ваши задачи и цели.</div>
+                        <div class="features__title title">Все настраивается!</div>
+                        <div class="features__subtitle subtitle">Используйте возможности сервиса PostApp,<br> чтобы сервис подстроился под Ваши задачи и цели.</div>
                         <div class="features__items">
                             <div class="features__item">
-                                <div class="logo">
-                                    <i class="fa fa-cloud" aria-hidden="true"></i>                    </div>
-                                <div class="info">
+                                <div class="item__logo">
+                                    <i class="fa fa-cloud" aria-hidden="true"></i></div>
+                                <div class="item__info">
                                     <div>Lorem ipsum dolor sit.</div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
                             </div>
             
                             <div class="features__item">
-                                <div class="logo">
-                                    <i class="fa fa-location-arrow" aria-hidden="true"></i>                    </div>
-                                <div class="info">
+                                <div class="item__logo">
+                                    <i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                                <div class="item__info">
                                     <div>Lorem ipsum dolor sit.</div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
                             </div>
             
                             <div class="features__item">
-                                <div class="logo">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>                    </div>
-                                <div class="info">
+                                <div class="item__logo">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i></div>
+                                <div class="item__info">
                                     <div>Lorem ipsum dolor sit.</div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
                             </div>
             
                             <div class="features__item">
-                                <div class="logo">
-                                    <i class="fa fa-check-square-o" aria-hidden="true"></i>                    </div>
-                                <div class="info">
+                                <div class="item__logo">
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i></div>
+                                <div class="item__info">
                                     <div>Lorem ipsum dolor sit.</div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
@@ -147,7 +145,7 @@
   <!-- Create Posts -->
       <div class="create">
          <div class="create__inner">
-            <div class="title">Форма создания поста</div>
+            <div class="create__title title">Форма создания поста</div>
             <form id="form">
 
                 <div class="form__item">
@@ -165,7 +163,7 @@
                     <div class="file">
                         <div class="file__item">
                             <input type="file" name="image" class="file__input" accept=".jpg, .png, .gif">
-                            <div class="btn btn__file">Выбрать</div>
+                            <div class="file__btn btn btn-file">Выбрать</div>
                         </div>
                         <div class="file__preview"></div>
                     </div>
@@ -189,9 +187,9 @@
 
                 <div class="form__item">
                     <div class="form__label">Дописать пост позже</div>
-                    <button type="submit" class="btn btn__draft">Добавить в черновик</button>
+                    <button type="submit" class="form__btn btn btn-draft">Добавить в черновик</button>
                 </div>
-                <button type="submit" class="btn btn__create">Создать пост</button>
+                <button type="submit" class="form__btn btn btn-create">Создать пост</button>
             </form>
          </div>
       </div>
@@ -200,7 +198,7 @@
 
 <div class="post">
     <div class="post__inner">
-        <div class="title">Ваши подготовленные публикации</div>
+        <div class="post__title title">Ваши подготовленные публикации</div>
         <div class="post__item">
             <div class="item__header">
                 <div class="header__title">Lorem, ipsum dolor.</div>
@@ -213,9 +211,9 @@
             <div class="item__footer">
                 <small>Time posting</small>
                 <div class="footer__btn">
-                    <button class="btn__delete btn">Удалить</button>
-                    <button class="btn__like btn">Нравится</button>
-                    <button class="btn__post btn">Опубликовано</button>
+                    <button class="btn-delete btn">Удалить</button>
+                    <button class="btn-like btn">Нравится</button>
+                    <button class="btn-post btn">Опубликовано</button>
                 </div>
             </div>
         </div>
@@ -226,7 +224,7 @@
   <!-- Favorite -->
       <div class="favorite">
           <div class="favorite__inner">
-            <div class="title">Избранные посты</div>
+            <div class="favorite__title title">Избранные посты</div>
 
             <div class="favorite__cards">
 
@@ -240,7 +238,6 @@
                          <small>Тематика</small>
                      </div>
                      <div class="card__footer">
-                         <div class="card__open">Подробнее...</div>
                          <div class="card__delete"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                      </div>
                  </div>
