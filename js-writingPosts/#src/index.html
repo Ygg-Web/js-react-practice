@@ -25,24 +25,24 @@
 <div class="main">
     <div class="container">
          <!-- SideBar -->
-        <div class="sidebar">
+        <div class="sidebar" id="sidebar">
             <div class="sidebar__inner">
                 <div class="sidebar__toggle">X</div>
                 <nav class="sidebar__nav"> 
                     <ul class="nav__list">
-                        <li class="nav__item">
+                        <li class="nav__item active" data-name="top">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Главная</a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item" data-name="post">
                             <i class="fa fa-list" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Посты</a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item" data-name="favorite">
                             <i class="fa fa-heart" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Избранное</a>
                         </li>
-                        <li class="nav__item">
+                        <li class="nav__item" data-name="draft">
                             <i class="fa fa-thumb-tack" aria-hidden="true"></i>
                             <a href="#" class="nav__link">Черновики</a>
                         </li>
@@ -54,7 +54,7 @@
 
 
         <div class="content active">
-            <div class="top">
+            <div class="top" data-name="top">
                 <div class="top__inner">
                     <div class="top__header">
                         <div class="header__title title">Используйте PostApp</div>
@@ -140,11 +140,9 @@
     </div>
 </div>
 
-
-
   <!-- Create Posts -->
-      <div class="create">
-         <div class="create__inner">
+    <div class="create hide" id="create">
+        <div class="create__inner">
             <div class="create__title title">Форма создания поста</div>
             <form id="form">
 
@@ -191,12 +189,11 @@
                 </div>
                 <button type="submit" class="form__btn btn btn-create">Создать пост</button>
             </form>
-         </div>
-      </div>
+        </div>
+    </div>
 
 <!-- Post -->
-
-<div class="post">
+<div class="post hide" id="post">
     <div class="post__inner">
         <div class="post__title title">Ваши подготовленные публикации</div>
         <div class="post__item">
@@ -220,9 +217,8 @@
     </div>
 </div>
 
-
   <!-- Favorite -->
-      <div class="favorite">
+      <div class="favorite hide" id="favorite">
           <div class="favorite__inner">
             <div class="favorite__title title">Избранные посты</div>
 

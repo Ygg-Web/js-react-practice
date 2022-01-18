@@ -168,10 +168,13 @@ background: #1a1a1a;
       width: 50px;
       margin: 0 20px 0 0;
     }
-    &:hover{
-      background:rgb(145, 39, 39);
+    &:hover, {
+      background: $red;
+      i{
+        color: $yellow;
+      }
       .nav__link{
-        color: #ebed11;
+        color: $yellow;
       }
     }
   }
@@ -181,7 +184,14 @@ background: #1a1a1a;
     color:#000;
     text-transform: uppercase;
     transform: color .2s ease-in-out;
+  }
+}
 
+.nav__item.active{
+  background: $red;
+  color: $yellow;
+  a{  
+    color: $yellow;
   }
 }
 
@@ -244,14 +254,6 @@ background: #1a1a1a;
   &__features{
   padding: 150px 0 0 0;
   }
-}
-
-.hide{  
- display: none;
-}
-
-.show{
-  display: block;
 }
 
 .features {
@@ -474,3 +476,13 @@ width: 100%;
     cursor: pointer;
   }
 }
+
+
+
+.hide{  
+  display: none;
+ }
+ 
+ .show{
+   display: block;
+ }
