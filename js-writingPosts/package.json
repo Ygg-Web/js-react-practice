@@ -1,0 +1,38 @@
+{
+    "name": "js-native-writing-post",
+    "version": "1.0.0",
+    "description": "js native app write post",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack --mode development",
+        "start": "webpack-dev-server --mode development --open"
+    },
+    "keywords": [
+        "js",
+        "app",
+        "write",
+        "post"
+    ],
+    "author": "Nikita",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "babel-loader": "^8.2.3",
+        "css-loader": "^6.5.1",
+        "html-webpack-plugin": "^5.5.0",
+        "mini-css-extract-plugin": "^2.4.7",
+        "node-sass": "^7.0.1",
+        "sass": "^1.48.0",
+        "sass-loader": "^12.4.0",
+        "style-loader": "^3.3.1",
+        "webpack": "^5.66.0",
+        "webpack-cli": "^4.9.1",
+        "webpack-dev-server": "^4.4.0"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.12.1"
+    }
+}

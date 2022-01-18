@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d4b6367b58.js" crossorigin="anonymous"></script>
+  <title>PostApp</title>
+</head>
+<body>
+  <!-- Start page -->
+    <div class="startApp">
+      <div class="startApp__inner">
+        <h1 class="startApp__title">Подготавливайте собственные посты к публикации заранее</h1>
+        <div class="startApp__subtite">Становись продуктивнее</div>
+        <button class="startApp__btn btn">Начать</button>
+        <div class="startApp__text">Планируйте контент заранее<br> и публикуйте в подходящее время</div>
+      </div>
+    </div>
+
+
+<div class="main">
+    <div class="container">
+         <!-- SideBar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar__inner">
+                <div class="sidebar__toggle">X</div>
+                <nav class="sidebar__nav"> 
+                    <ul class="nav__list">
+                        <li class="nav__item active" data-name="top">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <a href="#" class="nav__link">Главная</a>
+                        </li>
+                        <li class="nav__item" data-name="post">
+                            <i class="fa fa-list" aria-hidden="true"></i>
+                            <a href="#" class="nav__link">Посты</a>
+                        </li>
+                        <li class="nav__item" data-name="favorite">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a href="#" class="nav__link">Избранное</a>
+                        </li>
+                        <li class="nav__item" data-name="draft">
+                            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+                            <a href="#" class="nav__link">Черновики</a>
+                        </li>
+                    </ul>
+                </nav>
+                
+            </div>
+        </div>
+
+
+        <div class="content active">
+            <div class="top" data-name="top">
+                <div class="top__inner">
+                    <div class="top__header">
+                        <div class="header__title title">Используйте PostApp</div>
+                        <div class="header__subtitle subtitle">Планируйте публикации постов зарнее и экономьте время</div>
+                        <button class="header__btn btn btn-header">Создать пост</button>
+                    </div>
+                    <div class="top__body">
+                        <div class="top__items">
+                            <div class="top__item">
+                                <div class="item__title">Посты</div>
+                                <div class="item__content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim, culpa.</div>               
+                            </div>
+                
+                            <div class="top__item">
+                                <div class="item__title">Избранное</div>
+                                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>               
+                            </div>
+                
+                            <div class="top__item">
+                                <div class="item__title">Публикации</div>
+                                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>              
+                            </div>
+                
+                            <div class="top__item">
+                                <div class="item__title">Черновики</div>
+                                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>               
+                            </div>
+                
+                            <div class="top__item">
+                                <div class="item__title">Категории</div>
+                                <div class="item__content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, mollitia.</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="top__features">
+                        <div class="features__title title">Все настраивается!</div>
+                        <div class="features__subtitle subtitle">Используйте возможности сервиса PostApp,<br> чтобы сервис подстроился под Ваши задачи и цели.</div>
+                        <div class="features__items">
+                            <div class="features__item">
+                                <div class="item__logo">
+                                    <i class="fa fa-cloud" aria-hidden="true"></i></div>
+                                <div class="item__info">
+                                    <div>Lorem ipsum dolor sit.</div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+            
+                            <div class="features__item">
+                                <div class="item__logo">
+                                    <i class="fa fa-location-arrow" aria-hidden="true"></i></div>
+                                <div class="item__info">
+                                    <div>Lorem ipsum dolor sit.</div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+            
+                            <div class="features__item">
+                                <div class="item__logo">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i></div>
+                                <div class="item__info">
+                                    <div>Lorem ipsum dolor sit.</div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+            
+                            <div class="features__item">
+                                <div class="item__logo">
+                                    <i class="fa fa-check-square-o" aria-hidden="true"></i></div>
+                                <div class="item__info">
+                                    <div>Lorem ipsum dolor sit.</div>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+  <!-- Create Posts -->
+    <div class="create hide" id="create">
+        <div class="create__inner">
+            <div class="create__title title">Форма создания поста</div>
+            <form id="form">
+
+                <div class="form__item">
+                    <label class="form__label">Название поста</label>
+                    <input class="form__input" type="text" placeholder="Введите название">
+                </div>
+  
+                <div class="form__item">
+                    <label class="form__label">Текст</label>
+                    <textarea class="form__input" name="fulltext" placeholder="Введите текс поста"></textarea>
+                </div>
+                
+                <div class="form__item">
+                    <div class="form__label">Прикрепить изображение</div>
+                    <div class="file">
+                        <div class="file__item">
+                            <input type="file" name="image" class="file__input" accept=".jpg, .png, .gif">
+                            <div class="file__btn btn btn-file">Выбрать</div>
+                        </div>
+                        <div class="file__preview"></div>
+                    </div>
+                </div>
+    
+                <div class="form__item">
+                   <div class="form__label">Тематика поста</div>
+                   <select name="type">
+                        <option value="scientific">Научное</option>
+                        <option value="fun">Развлекательное</option>
+                        <option value="beauty">Мода и стиль</option>
+                        <option value="travels">Путешествия</option>
+                        <option value="psychology">Психология</option>
+                        <option value="ecomony">Экономика</option>
+                        <option value="philosophy">Философия</option>
+                        <option value="sport">Спорт</option>
+                        <option value="food" selected>Еда</option>
+                        <option value="othe">Разное</option>
+                    </select>
+                </div>
+
+                <div class="form__item">
+                    <div class="form__label">Дописать пост позже</div>
+                    <button type="submit" class="form__btn btn btn-draft">Добавить в черновик</button>
+                </div>
+                <button type="submit" class="form__btn btn btn-create">Создать пост</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Post -->
+<div class="post hide" id="post">
+    <div class="post__inner">
+        <div class="post__title title">Ваши подготовленные публикации</div>
+        <div class="post__item">
+            <div class="item__header">
+                <div class="header__title">Lorem, ipsum dolor.</div>
+                <small>Тематика</small>
+            </div>
+            <div class="item__body">
+                <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
+                <div class="body__image"></div>
+            </div>
+            <div class="item__footer">
+                <small>Time posting</small>
+                <div class="footer__btn">
+                    <button class="btn-delete btn">Удалить</button>
+                    <button class="btn-like btn">Нравится</button>
+                    <button class="btn-post btn">Опубликовано</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <!-- Favorite -->
+      <div class="favorite hide" id="favorite">
+          <div class="favorite__inner">
+            <div class="favorite__title title">Избранные посты</div>
+
+            <div class="favorite__cards">
+
+                <div class="favorite__card">
+                    <div class="card__header">
+                         <div class="header__title">Lorem, ipsum dolor.</div>
+                         <small>Time Posting</small>
+                    </div>
+                     <div class="card__body">
+                         <div class="body__text">Lorem ipsum dolor sit amet......</div>
+                         <small>Тематика</small>
+                     </div>
+                     <div class="card__footer">
+                         <div class="card__delete"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                     </div>
+                 </div>
+
+            </div>
+            
+          </div>
+      </div>
+
+      
+  <!-- Draft -->
+<!-- <div class="draft"> 
+    <div class="draft__inner">
+        <div class="title">Черновик с отложенными постами</div>
+        <div class="draft__item">
+            <div class="item__header">
+                <div class="header__title">Lorem, ipsum dolor.</div>
+                <small>Тематика</small>
+            </div>
+            <div class="item__body">
+                <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
+            </div>
+            <div class="item__footer">
+                <button>Удалить</button>
+                <button>Редактировать</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+</body>
+</html>
