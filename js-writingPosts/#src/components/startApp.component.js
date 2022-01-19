@@ -1,4 +1,5 @@
-import { Component } from "../core/component";
+import { Component } from "../core/component"
+import {pageComponent} from './page.component'
 
 export class startAppComponent extends Component {
   constructor(id){
@@ -6,11 +7,21 @@ export class startAppComponent extends Component {
   }
 
   init(){
-    const btnStart = document.querySelector('[data-start="start"]')
-    btnStart.addEventListener('click', buttonHandler.bind(this))
+    const page = new pageComponent('page')
+    page.hide()
+
+    if(localStorage.getItem('startApp')){
+      this.hide()
+      page.show()
+    }
+    
+    const btnStart = this.el.querySelector('[data-start="start"]')
+    btnStart.addEventListener('click', buttonHandler.bind(this, page))
   }
 }
 
-function buttonHandler(){
+function buttonHandler(page){
+  localStorage.setItem('startApp', true)
+  page.show()
   this.hide()
 }

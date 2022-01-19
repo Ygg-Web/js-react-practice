@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+$bgr: #1a1a1a;
 $yellow: #ebed11;
 $red: rgb(145, 39, 39);
 $width-sidebar: 350px;
@@ -12,7 +13,7 @@ $blue: #1e91ea;
 body {
 font-family: 'Montserrat', sans-serif;
 color: #fff;
-background: #1a1a1a;
+background: $bgr;
 }
 
 //--- Start Page-----------------------------------------------------------------------------------
@@ -21,7 +22,11 @@ background: #1a1a1a;
   justify-content: center;
   align-items: center;
   text-align: center;
+  width: 100%s;
   height: 100vh;
+  position: relative;
+  z-index: 1000;
+  background: $bgr;
   &__btn{
     margin: 20px;
   }
@@ -123,7 +128,8 @@ background: #1a1a1a;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 10;
+  transition: transform .5s linear;
     &__inner{
       height: 50%;
       display: flex;
@@ -134,9 +140,10 @@ background: #1a1a1a;
     }
     &__toggle{
       position: absolute;
-      top: 10px;
-      right: -20px;
-      color: $red;
+      top: 5px;
+      right: -30px;
+      color: $yellow;
+      font-size: 1.5rem;
     }
 		&__nav {
       margin:  20px 10px;
@@ -208,12 +215,14 @@ background: #1a1a1a;
 //----- MainPage-----------------------------------------------------------------------------
 .content {
   position: relative;
-  transform:translateX($width-sidebar);
+  transform: translateX($width-sidebar);
+  transition: transform .5s linear;
 }
 
 .content.active{
   transform:translateX(0);
 }
+
 
 .top{
   &__inner{
