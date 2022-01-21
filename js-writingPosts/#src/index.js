@@ -8,8 +8,16 @@ import "./scss/style.scss"
 
 
 new startAppComponent('startApp')
-new sidebarComponent('sidebar')
-new topComponent('top')
-new createComponent('create')
-new postComponent('post')
-new favoriteComponent('favorite')
+const sidebar = new sidebarComponent('sidebar')
+const create = new createComponent('create')
+
+
+const top = new topComponent('top')
+const post = new postComponent('post')
+const favorite = new favoriteComponent('favorite')
+
+sidebar.registerLinks([
+  {name: 'top', component: top},
+  {name: 'post', component: post},
+  {name: 'favorite', component: favorite}
+])

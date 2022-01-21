@@ -107,7 +107,6 @@ background: $bgr;
 }
 
 .container {
-  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -144,6 +143,7 @@ background: $bgr;
       right: -30px;
       color: $yellow;
       font-size: 1.5rem;
+      cursor: pointer;
     }
 		&__nav {
       margin:  20px 10px;
@@ -161,6 +161,8 @@ background: $bgr;
   }
 
   &__item {
+    // position: relative;
+    // z-index: 200;
     list-style: none;
     width: 250px;
     height: 50px;
@@ -214,13 +216,16 @@ background: $bgr;
 
 //----- MainPage-----------------------------------------------------------------------------
 .content {
+  padding: 0 50px 0;
+  display: block;
   position: relative;
   transform: translateX($width-sidebar);
-  transition: transform .5s linear;
+  transition: all .5s linear;
 }
 
 .content.active{
   transform:translateX(0);
+  
 }
 
 

@@ -7,5 +7,15 @@ export class topComponent extends Component {
 
   init(){
     console.log("top")
+    this.el.addEventListener('click', createPostHandler.bind(this))
+  }
+}
+
+
+
+function createPostHandler(e){
+//  e.preventDefault()
+  if (event.target.dataset.create){
+    console.log('click')
   }
 }
