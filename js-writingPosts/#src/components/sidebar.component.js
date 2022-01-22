@@ -36,10 +36,10 @@ function btnToggleHandler(e){
       this.el.classList.add('active')
       contant.classList.remove('active')
   } else {
-    btn.classList.remove('fa-times')
-    btn.classList.add('fa-bars')
-    this.el.classList.remove('active')
-    contant.classList.add('active')
+      btn.classList.remove('fa-times')
+      btn.classList.add('fa-bars')
+      this.el.classList.remove('active')
+      contant.classList.add('active')
   }
 }
 

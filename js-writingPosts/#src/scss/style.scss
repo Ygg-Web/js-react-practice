@@ -300,12 +300,24 @@ background: $bgr;
 }
 
 // Form create post
-.create {
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  background: rgb(0, 0, 0, .8);
     &__inner{
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    &__content{
+      position: relative;
+      background:$bgr;
+      margin: 100px auto;
       width: 600px;
+      height: 720px;
       padding: 15px;
       border: 2px solid $yellow;
       border-radius: 15px;
@@ -313,6 +325,13 @@ background: $bgr;
     }
     &__title{
       text-align: center;
+    }
+    &__close{
+      position: absolute;
+      top: 0;
+      right: 10px;
+      font-size: 2rem;
+      cursor: pointer;
     }
 }
 

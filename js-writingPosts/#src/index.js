@@ -5,12 +5,14 @@ import { createComponent } from "./components/create.component"
 import { postComponent } from "./components/post.component"
 import { favoriteComponent } from "./components/favorite.component"
 import "./scss/style.scss"
+import { formComponent } from "./components/form.component"
+import modalCreateForm from "./templates/modalCreate"
 
 
 new startAppComponent('startApp')
 const sidebar = new sidebarComponent('sidebar')
-const create = new createComponent('create')
-
+const form = new formComponent('form')
+const modal = modalCreateForm('[data-modal]', 'modal')
 
 const top = new topComponent('top')
 const post = new postComponent('post')
