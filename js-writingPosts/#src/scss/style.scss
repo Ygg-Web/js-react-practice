@@ -314,10 +314,9 @@ background: $bgr;
     }
     &__content{
       position: relative;
-      background:$bgr;
+      background: $bgr;
       margin: 100px auto;
       width: 600px;
-      height: 720px;
       padding: 15px;
       border: 2px solid $yellow;
       border-radius: 15px;
@@ -405,6 +404,17 @@ select{
       max-width: 100%;
     }
   }
+}
+
+.item__validator{
+  margin: 5px 0 0 0;
+  color: $red;
+}
+
+.invalid{
+  border: 3px solid $red;
+  box-shadow: 0 0 20px $red;
+
 }
 
 .post {

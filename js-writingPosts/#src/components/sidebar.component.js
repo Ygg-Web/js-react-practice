@@ -25,9 +25,10 @@ export class sidebarComponent extends Component {
 function btnToggleHandler(e){
   const btn = e.target
 
-  const page = new pageComponent('page')
-  const contant = page.el.querySelector('.content')
-  console.log(contant)
+  // const page = new pageComponent('page')
+  // const contant = page.el.querySelector('.content')
+  // console.log(contant)
+  const contant = document.querySelector('.content')
 
 
     if(btn.classList.contains('fa-bars')){

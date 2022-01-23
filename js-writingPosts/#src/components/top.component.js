@@ -9,8 +9,3 @@ export class topComponent extends Component {
     console.log("top")
   }
 }
-
-
-
-function createPostHandler(e){
-}

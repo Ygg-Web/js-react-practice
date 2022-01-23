@@ -1,6 +1,7 @@
 import { Component } from "../core/component"
 import { Form } from "../core/form"
 import { Validators } from "../core/validators"
+import { apiService } from "../service/api.service"
 
 
 export class formComponent extends Component {
@@ -20,7 +21,7 @@ export class formComponent extends Component {
 }
 
 
-function submitHandler(e){
+async function submitHandler(e){
   e.preventDefault()
 
   if(this.form.isValid()){
@@ -31,6 +32,8 @@ function submitHandler(e){
       ...this.form.value()
       
     }
+  
+    await apiService.createPosts(formData)
     this.form.clear()
     console.log('FormDATA', formData)
   }

@@ -30,6 +30,8 @@ export class Form {
         isValid = validator(this.form[item].value) && isValid
       })
 
+      isValid ? clearError(this.form[item]) : setError(this.form[item])
+
       isFormValid = isFormValid && isValid
     })
 
@@ -39,13 +41,15 @@ export class Form {
 
 
 function setError(item) {
-  
+  clearError(item)
+  const error =  `<p class="item__validator">Введите корректное значение</p>`
+  item.classList.add('invalid')
+  item.insertAdjacentHTML('afterend', error)
 }
 
 function clearError(item){
   item.classList.remove('invalid')
-
   if(item.nextSibling){
-    control.closest('.form__item').removeChild(control.nextSibling)
+    item.closest('.form__item').removeChild(item.nextSibling)
   }
 }

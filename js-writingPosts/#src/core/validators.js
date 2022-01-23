@@ -5,7 +5,7 @@ export class Validators {
 
   static minLenght(length){
     return value => {
-      return value.lenght >= length
+      return value.length >= length
     }
   }
 
