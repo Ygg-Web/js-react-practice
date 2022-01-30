@@ -76,17 +76,17 @@ class Quiz extends Component {
 
   async componentDidMount () {
     // console.log(this.props.location.state.from.search)
-    // try { 
-    //   const response = await axios.get(`/quizes/${this.props.location.state.from.search.id}.json`)
-    //   const quiz = response.data
+    try { 
+      const response = await axios.get(`/quizes/${this.props.match.params.id}.json`)
+      const quiz = response.data
 
-    //   this.setState({
-    //     quiz,
-    //     loading: false
-    //   })
-    // } catch (error){
-    //   console.log(error)
-    // }
+      this.setState({
+        quiz,
+        loading: false
+      })
+    } catch (error){
+      console.log(error)
+    }
   }
 
   render(){
