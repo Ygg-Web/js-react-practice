@@ -139,5 +139,5 @@ export function quizAnswerClick(answerId){
 }
 
 function isQuizFinished(state){
-  return state.activeQuestion + 1 === state.quiz.lenght
+  return state.activeQuestion + 1 === state.quiz.length
 }

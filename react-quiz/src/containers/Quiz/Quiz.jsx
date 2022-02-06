@@ -8,7 +8,7 @@ import {fetchQuizById, quizAnswerClick, retryQuiz} from '../../store/actions/qui
 
 class Quiz extends Component {
 
-  async componentDidMount () {
+  componentDidMount () {
     this.props.fetchQuizById(this.props.match.params.id)
   }
 
@@ -21,7 +21,8 @@ class Quiz extends Component {
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
           <h1>Ответьте на все вопросы</h1>
-          {this.props.loading && !this.props.quiz
+          {
+            this.props.loading || !this.props.quiz
             ? <Loader/> 
             : this.props.isFinished 
               ? <FinishedQuiz
