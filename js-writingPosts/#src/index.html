@@ -12,22 +12,25 @@
 </head>
 <body>
   <!-- Start page -->
-    <div class="startApp">
+    <div class="startApp" id="startApp">
       <div class="startApp__inner">
         <h1 class="startApp__title">Подготавливайте собственные посты к публикации заранее</h1>
         <div class="startApp__subtite">Становись продуктивнее</div>
-        <button class="startApp__btn btn">Начать</button>
+        <button class="startApp__btn btn" data-start="start">Начать</button>
         <div class="startApp__text">Планируйте контент заранее<br> и публикуйте в подходящее время</div>
       </div>
     </div>
 
 
-<div class="main">
+<div class="main" id="page">
     <div class="container">
          <!-- SideBar -->
         <div class="sidebar" id="sidebar">
             <div class="sidebar__inner">
-                <div class="sidebar__toggle">X</div>
+                <div class="sidebar__toggle" data-toggle="toggle">
+                    <!-- <i class="fa fa-times" aria-hidden="true"></i> -->
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
                 <nav class="sidebar__nav"> 
                     <ul class="nav__list">
                         <li class="nav__item active" data-name="top">
@@ -54,12 +57,12 @@
 
 
         <div class="content active">
-            <div class="top" data-name="top">
+            <div class="top" data-name="top" id="top">
                 <div class="top__inner">
                     <div class="top__header">
                         <div class="header__title title">Используйте PostApp</div>
                         <div class="header__subtitle subtitle">Планируйте публикации постов зарнее и экономьте время</div>
-                        <button class="header__btn btn btn-header">Создать пост</button>
+                        <button class="header__btn btn btn-header" data-modal>Создать пост</button>
                     </div>
                     <div class="top__body">
                         <div class="top__items">
@@ -134,116 +137,107 @@
                     </div>
                 </div>
             </div>
+  
+            <!-- Create Posts -->
+            <div class="modal hide" id="modal">
+                <div class="modal__inner">
+                    <div class="modal__content">
+                        <div class="modal__title title">Форма создания поста</div>
+                        <div class="modal__close" data-close>&times;</div>
+                        <form id="form">
+            
+                            <div class="form__item">
+                                <label class="form__label">Название поста</label>
+                                <input class="form__input" name="title" type="text" placeholder="Введите название">
+                            </div>
+            
+                            <div class="form__item">
+                                <label class="form__label">Текст</label>
+                                <textarea class="form__input" name="fulltext" placeholder="Введите текс поста"></textarea>
+                            </div>
+                            
+                            <div class="form__item">
+                                <div class="form__label">Прикрепить изображение</div>
+                                <div class="file">
+                                    <div class="file__item">
+                                        <input type="file" name="image" class="file__input" accept=".jpg, .png, .gif">
+                                        <div class="file__btn btn btn-file">Выбрать</div>
+                                    </div>
+                                    <div class="file__preview"></div>
+                                </div>
+                            </div>
+                
+                            <div class="form__item">
+                            <div class="form__label">Тематика поста</div>
+                            <select name="type">
+                                    <option value="scientific">Научное</option>
+                                    <option value="fun">Развлекательное</option>
+                                    <option value="beauty">Мода и стиль</option>
+                                    <option value="travels">Путешествия</option>
+                                    <option value="psychology">Психология</option>
+                                    <option value="ecomony">Экономика</option>
+                                    <option value="philosophy">Философия</option>
+                                    <option value="sport">Спорт</option>
+                                    <option value="food" selected>Еда</option>
+                                    <option value="othe">Разное</option>
+                                </select>
+                            </div>
+            
+                            <div class="form__item">
+                                <div class="form__label">Дописать пост позже</div>
+                                <button type="submit" class="form__btn btn btn-draft">Добавить в черновик</button>
+                            </div>
+                            <button type="submit" class="form__btn btn btn-create">Создать пост</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+  <!-- Favorite -->
+            <div class="favorite hide" id="favorite">
+                <div class="favorite__inner">
+                  <div class="favorite__title title">Избранные посты</div>
+      
+                  <div class="favorite__cards">
+      
+                      <div class="favorite__card">
+                          <div class="card__header">
+                               <div class="header__title">Lorem, ipsum dolor.</div>
+                               <small>Time Posting</small>
+                          </div>
+                           <div class="card__body">
+                               <div class="body__text">Lorem ipsum dolor sit amet......</div>
+                               <small>Тематика</small>
+                           </div>
+                           <div class="card__footer">
+                               <div class="card__delete"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                           </div>
+                       </div>
+      
+                  </div>
+                  
+                </div>
+            </div>
+
+
+
+
 
         </div>
 
     </div>
 </div>
 
-  <!-- Create Posts -->
-    <div class="create hide" id="create">
-        <div class="create__inner">
-            <div class="create__title title">Форма создания поста</div>
-            <form id="form">
-
-                <div class="form__item">
-                    <label class="form__label">Название поста</label>
-                    <input class="form__input" type="text" placeholder="Введите название">
-                </div>
-  
-                <div class="form__item">
-                    <label class="form__label">Текст</label>
-                    <textarea class="form__input" name="fulltext" placeholder="Введите текс поста"></textarea>
-                </div>
-                
-                <div class="form__item">
-                    <div class="form__label">Прикрепить изображение</div>
-                    <div class="file">
-                        <div class="file__item">
-                            <input type="file" name="image" class="file__input" accept=".jpg, .png, .gif">
-                            <div class="file__btn btn btn-file">Выбрать</div>
-                        </div>
-                        <div class="file__preview"></div>
-                    </div>
-                </div>
-    
-                <div class="form__item">
-                   <div class="form__label">Тематика поста</div>
-                   <select name="type">
-                        <option value="scientific">Научное</option>
-                        <option value="fun">Развлекательное</option>
-                        <option value="beauty">Мода и стиль</option>
-                        <option value="travels">Путешествия</option>
-                        <option value="psychology">Психология</option>
-                        <option value="ecomony">Экономика</option>
-                        <option value="philosophy">Философия</option>
-                        <option value="sport">Спорт</option>
-                        <option value="food" selected>Еда</option>
-                        <option value="othe">Разное</option>
-                    </select>
-                </div>
-
-                <div class="form__item">
-                    <div class="form__label">Дописать пост позже</div>
-                    <button type="submit" class="form__btn btn btn-draft">Добавить в черновик</button>
-                </div>
-                <button type="submit" class="form__btn btn btn-create">Создать пост</button>
-            </form>
-        </div>
-    </div>
+   
 
 <!-- Post -->
 <div class="post hide" id="post">
-    <div class="post__inner">
+    <!-- <div class="post__inner"></div>
         <div class="post__title title">Ваши подготовленные публикации</div>
-        <div class="post__item">
-            <div class="item__header">
-                <div class="header__title">Lorem, ipsum dolor.</div>
-                <small>Тематика</small>
-            </div>
-            <div class="item__body">
-                <div class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, porro?</div>
-                <div class="body__image"></div>
-            </div>
-            <div class="item__footer">
-                <small>Time posting</small>
-                <div class="footer__btn">
-                    <button class="btn-delete btn">Удалить</button>
-                    <button class="btn-like btn">Нравится</button>
-                    <button class="btn-post btn">Опубликовано</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div> -->
 </div>
 
-  <!-- Favorite -->
-      <div class="favorite hide" id="favorite">
-          <div class="favorite__inner">
-            <div class="favorite__title title">Избранные посты</div>
 
-            <div class="favorite__cards">
-
-                <div class="favorite__card">
-                    <div class="card__header">
-                         <div class="header__title">Lorem, ipsum dolor.</div>
-                         <small>Time Posting</small>
-                    </div>
-                     <div class="card__body">
-                         <div class="body__text">Lorem ipsum dolor sit amet......</div>
-                         <small>Тематика</small>
-                     </div>
-                     <div class="card__footer">
-                         <div class="card__delete"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-                     </div>
-                 </div>
-
-            </div>
-            
-          </div>
-      </div>
-
-      
   <!-- Draft -->
 <!-- <div class="draft"> 
     <div class="draft__inner">
