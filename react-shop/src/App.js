@@ -3,6 +3,12 @@ import Drawer from "./components/Drawer";
 import Card from "./components/Card"
 
 
+const arr = [
+  {name: 'Мужские боты для бегемота', price: '15 999', image: '/img/shop/1.jpg', id: 1 },
+  {name: 'Мужские кроссовки Nike Air Max', price: '12 999', image: '/img/shop/2.jpg', id: 2 },
+]
+
+
 function App() {
   return (
     <div className="wrapper">
@@ -18,7 +24,7 @@ function App() {
         </div>
 
         <div className="cards">
-          <Card/>
+          { arr.map(item => <Card key={item.id} item={item}/>)}
         </div>
 
       </div>
@@ -27,3 +33,4 @@ function App() {
 }
 
 export default App;
+
