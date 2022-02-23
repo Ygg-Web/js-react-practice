@@ -4,7 +4,7 @@
   border-radius: 40px;
   padding: 30px;
   width: 220px;
-  margin: 0 30px 0 0;
+  margin: 0 30px 30px 0;
   transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
   
 
@@ -43,14 +43,8 @@
       flex-direction: column;
     }
   }
-}
 
-.button{
-  background: #fff;
-  border: 1px solid #f2f2f2;
-  box-sizing: border-box;
-  border-radius: 8px;
-  height: 32px;
-  width: 32px;
-  cursor: pointer;
+  .plus {
+    cursor: pointer;
+  }
 }

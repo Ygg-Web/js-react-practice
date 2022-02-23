@@ -1,7 +1,6 @@
 import classes from './Header.module.scss'
 
-
-export default function Header () {
+export default function Header (props) {
   return (
     <header>
       <div className={classes.headerLogo}>
@@ -12,9 +11,9 @@ export default function Header () {
         </div>
       </div>
       <ul className={classes.headerBasket}>
-        <li>
+        <li onClick={props.onOpenCart}>
           <img width={18} height={18} src="/img/cart.svg" alt="Cart" />
-          <span> 1205 руб.</span>
+          <span>  1205 руб.</span>
         </li>
         <li>
           <img width={18} height={18} src="/img/user.svg" alt=" " />

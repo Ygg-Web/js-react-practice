@@ -1,19 +1,23 @@
-import Header from "./components/Header";
-import Drawer from "./components/Drawer";
+import {React, useEffect, useState} from 'react'
+import Header from "./components/Header"
+import Drawer from "./components/Drawer"
 import Card from "./components/Card"
 
 
-const arr = [
-  {name: 'Мужские боты для бегемота', price: '15 999', image: '/img/shop/1.jpg', id: 1 },
-  {name: 'Мужские кроссовки Nike Air Max', price: '12 999', image: '/img/shop/2.jpg', id: 2 },
-]
-
-
 function App() {
+  const [goods, setGoods] = useState([])
+  const [cartOpened, setCartOpened] = useState(false)
+
+  useEffect(()=> {
+    fetch('https://621691fa71e7672e5365ea7c.mockapi.io/goods')
+    .then(res => res.json())
+    .then(json => setGoods(json))
+  }, [])
+
   return (
     <div className="wrapper">
-      <Header/>
-      <Drawer/>
+      <Header onOpenCart={()=>setCartOpened(true)}/>
+      {cartOpened && <Drawer onClose={()=>setCartOpened(false)}/>}
       <div className="content">
         <div className="content__inner">
           <h1>Вся обувь</h1>  
@@ -24,7 +28,13 @@ function App() {
         </div>
 
         <div className="cards">
-          { arr.map(item => <Card key={item.id} item={item}/>)}
+          { goods.map(item => (
+            <Card 
+              key={item.id} 
+              item={item} 
+              onClickFavorite={() => console.log('Нажали на лайк')}
+            />)
+          )}
         </div>
 
       </div>

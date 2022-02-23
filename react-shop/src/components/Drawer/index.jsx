@@ -1,14 +1,13 @@
 
 import classes from './Drawer.module.scss'
 
-
-export default function Drawer() {
+export default function Drawer(props) {
   return (
-    <div style={{display: 'none'}} className={classes.overlay}>
+    <div className={classes.overlay}>
       <div className={classes.drawer}>
         <h2>
           Корзина
-          <img className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove"/>
+          <img onClick={props.onClose} className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove"/>
         </h2>
 
         <div className={classes.cartItems}>
@@ -18,7 +17,7 @@ export default function Drawer() {
               <p>Мужские кроссовки Nike ....</p>
               <b> 14 999 руб.</b>
             </div>
-            <img className={classes.removeBtn} width={18} height={18} src="/img/btn-remove.svg" alt="Remove" />  
+            <img className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove" />  
           </div>
         </div>  
 
@@ -35,7 +34,7 @@ export default function Drawer() {
               <b>2065 руб.</b>
             </li>
           </ul>
-          <button className={classes.greenButton}>Оформить заказ<img src="/img/arrow.svg" alt="Arrow"/></button>
+          <button className="greenButton" >Оформить заказ<img src="/img/arrow.svg" alt="Arrow"/></button>
         </div>
       </div>
     </div>
