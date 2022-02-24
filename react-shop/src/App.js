@@ -6,6 +6,7 @@ import Card from "./components/Card"
 
 function App() {
   const [goods, setGoods] = useState([])
+  const [cartItems, setCartItems] = useState([])
   const [cartOpened, setCartOpened] = useState(false)
 
   useEffect(()=> {
@@ -14,10 +15,16 @@ function App() {
     .then(json => setGoods(json))
   }, [])
 
+  const onAddToCart = (item) => {
+
+    setCartItems(prevState => [...prevState, item])
+  }
+
+
   return (
     <div className="wrapper">
       <Header onOpenCart={()=>setCartOpened(true)}/>
-      {cartOpened && <Drawer onClose={()=>setCartOpened(false)}/>}
+      {cartOpened && <Drawer items={cartItems} onClose={()=>setCartOpened(false)}/>}
       <div className="content">
         <div className="content__inner">
           <h1>Вся обувь</h1>  
@@ -32,7 +39,8 @@ function App() {
             <Card 
               key={item.id} 
               item={item} 
-              onClickFavorite={() => console.log('Нажали на лайк')}
+              onFavorite={() => console.log('Нажали на лайк')}
+              onPlus={onAddToCart}
             />)
           )}
         </div>

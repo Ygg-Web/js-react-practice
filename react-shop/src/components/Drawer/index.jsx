@@ -1,24 +1,26 @@
 
 import classes from './Drawer.module.scss'
 
-export default function Drawer(props) {
+export default function Drawer({onClose, items=[]}) {
   return (
     <div className={classes.overlay}>
       <div className={classes.drawer}>
         <h2>
           Корзина
-          <img onClick={props.onClose} className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove"/>
+          <img onClick={onClose} className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove"/>
         </h2>
 
         <div className={classes.cartItems}>
-          <div className={classes.cartItem}>
-            <div style={{backgroundImage: "url(/img/shop/1.jpg)"}} className={classes.cartItemImg}></div>
-            <div>
-              <p>Мужские кроссовки Nike ....</p>
-              <b> 14 999 руб.</b>
+          {items.map(item => (
+            <div key={item.id} className={classes.cartItem}>
+              <div style={{backgroundImage: `url(${item.image})`}} className={classes.cartItemImg}></div>
+              <div>
+                <p>{item.name}</p>
+                <b>{item.price} руб.</b>
+              </div>
+              <img className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove" />  
             </div>
-            <img className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove" />  
-          </div>
+          ))}
         </div>  
 
         <div className={classes.cartTotal}>

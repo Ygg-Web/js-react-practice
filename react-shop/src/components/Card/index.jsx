@@ -2,17 +2,17 @@
 import {React, useState} from 'react'
 import classes from './Card.module.scss'
 
-export default function Card (props) {
-  const {item} = props
+export default function Card ({item, onFavorite, onPlus}) {
   const [isAdded, setIsAdded] = useState(false)
 
   const clickPlusHandler = () => {
+    onPlus(item)
     setIsAdded(!isAdded)
   }
 
   return (
     <div className={classes.card}>
-      <div className={classes.favorite} onClick={props.onClickFavorite}>
+      <div className={classes.favorite} onClick={onFavorite}>
         <img src="/img/unliked.svg" alt="Unliked"/>
       </div>
       <img width={133} height={112} src={item.image} alt="shop"/>
