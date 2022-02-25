@@ -1,6 +1,13 @@
 import Card from "../components/Card"
 
-export default function Home() {
+export default function Home({
+    goods,
+    searchValue,
+    setSearchValue, 
+    onAddToCart, 
+    onAddFavorite, 
+    onChangeSearchInput
+  }) {
   return (
     <div className="content">
       <div className="content__inner">
@@ -16,7 +23,7 @@ export default function Home() {
         { goods.filter(item => item.name.toLowerCase().includes(searchValue)).map(item => (
           <Card 
             key={item.id} 
-            item={item} 
+            item={item}
             onFavorite={onAddFavorite}
             onPlus={onAddToCart}
           />)

@@ -2,9 +2,9 @@
 import {React, useState} from 'react'
 import classes from './Card.module.scss'
 
-export default function Card ({item, onFavorite, onPlus}) {
+export default function Card ({item, onFavorite, onPlus, favorited = false}) {
   const [isAdded, setIsAdded] = useState(false)
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(favorited)
   
 
   const clickPlusHandler = () => {
