@@ -4,16 +4,23 @@ import classes from './Card.module.scss'
 
 export default function Card ({item, onFavorite, onPlus}) {
   const [isAdded, setIsAdded] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(false)
+  
 
   const clickPlusHandler = () => {
     onPlus(item)
     setIsAdded(!isAdded)
   }
 
+  const clickLikeHandler = () => {
+    onFavorite(item)
+    setIsFavorite(!isFavorite)
+  }
+
   return (
     <div className={classes.card}>
-      <div className={classes.favorite} onClick={onFavorite}>
-        <img src="/img/unliked.svg" alt="Unliked"/>
+      <div className={classes.favorite} onClick={clickLikeHandler}>
+        <img src={isFavorite ? "/img/liked.svg" : "/img/unliked.svg" } alt="Unliked"/>
       </div>
       <img width={133} height={112} src={item.image} alt="shop"/>
       <h5>{item.name}</h5>
