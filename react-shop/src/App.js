@@ -74,7 +74,7 @@ function App() {
   }
 
   return (
-   <AppContext.Provider value={{goods, cartItems, favorites, isItemAdded, onAddFavorite}}>
+   <AppContext.Provider value={{goods, cartItems, favorites, isItemAdded, onAddFavorite, setCartOpened, setCartItems, urlBack}}>
     <div className="wrapper">
       
       <Header onOpenCart={()=>setCartOpened(true)}/>

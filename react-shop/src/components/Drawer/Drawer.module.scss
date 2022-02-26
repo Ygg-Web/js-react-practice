@@ -105,11 +105,17 @@
  .greenButton {
    position: relative;
 
+   &:disabled{
+    background-color: #bebebe;
+    cursor: default;
+   }
+
    &:hover {
      img{
        transform: translateX(5px);
      }
    }
+
   
    img {
     position: absolute;
@@ -118,48 +124,6 @@
     transition: transform 0.15s ease-in-out ;
    }
  }
-}
-
-.cartEmpty {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex: 1;
-  text-align: center;
-
-
-  .cartEmptyImg {
-    margin: 0 0 20px 0;
-    width: 120px;
-    height: 120px;
-  }
-
-  p{
-    opacity: 0.6;
-    width: 280px;
-    line-height: 24px;
-  }
-
-  .greenButton {
-    width: 245px;
-    margin: 20px 0 0 0;
-
-    &:hover {
-      img {
-        transform: rotate(180deg) translateX(3px);
-      }
-    }
-
-    img {
-      position: relative;
-      top: 1px;
-      transform: rotate(180deg);
-      margin: 0 15px 0 0;
-      transition: transform 0.15s ease-in-out;
-    }
-  }
-
 }
 
 .greenButton {

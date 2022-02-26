@@ -1,7 +1,36 @@
 
+import { useState, useContext } from 'react'
 import classes from './Drawer.module.scss'
+import AppContext from '../../AppContext'
+import Info from '../Info'
+import axios from 'axios'
 
 export default function Drawer({onClose, onRemove, items=[]}) {
+  const {cartItems, setCartItems, urlBack} = useContext(AppContext)
+  const [isOrderComppete, setIsOrderComppete] = useState(false)
+  const [orderId, setOrderId] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
+
+
+  const onClickOrder = async () => {
+   try{
+    setIsLoading(true)
+    const {data} = await axios.post(`${urlBack}/orders`, {items: cartItems})
+    setOrderId(data.id)
+    setIsOrderComppete(true)
+    setCartItems([])
+
+    cartItems.forEach(item => {
+      axios.delete(`${urlBack}/cart/${item.id}`)
+    })
+    
+  } catch(error) {
+    alert("Ошибка при создании заказа :(")
+   }
+   setIsLoading(false)
+  }
+
   return (
     <div className={classes.overlay}>
       <div className={classes.drawer}>
@@ -24,39 +53,34 @@ export default function Drawer({onClose, onRemove, items=[]}) {
                       <img onClick={() => onRemove(item.id)} className={classes.removeBtn} src="/img/btn-remove.svg" alt="Remove" />  
                     </div>
                   ))}
-                </div> 
+              </div> 
                 
-                <div className={classes.cartTotal}>
-                  <ul >
-                    <li>
-                      <span>Итого:</span>
-                      <div></div>
-                      <b>30 999 руб.</b>
-                    </li>
-                    <li>
-                      <span>Налог 5%:</span>
-                      <div></div>
-                      <b>2065 руб.</b>
-                    </li>
-                  </ul>
-                  <button className="greenButton" >
-                      Оформить заказ
-                    <img src="/img/arrow.svg" alt="Arrow"/>
-                  </button>
-                </div>
-              </>
-
-            : <div className={classes.cartEmpty}>
-                <img className={classes.cartEmptyImg} src="/img/empty-cart.jpg" alt="Empty"/>
-                <h2>Корзина пустая</h2>
-                <p>Добавьте товар, чтобы оформить заказ</p>
-                <button onClick={onClose} className={classes.greenButton}>
+              <div className={classes.cartTotal}>
+                <ul >
+                  <li>
+                    <span>Итого:</span>
+                    <div></div>
+                    <b>30 999 руб.</b>
+                  </li>
+                  <li>
+                    <span>Налог 5%:</span>
+                    <div></div>
+                    <b>2065 руб.</b>
+                  </li>
+                </ul>
+                <button disabled={isLoading} onClick={onClickOrder} className={classes.greenButton} >
+                    Оформить заказ
                   <img src="/img/arrow.svg" alt="Arrow"/>
-                  Вернуться назад
                 </button>
               </div>
-        }
+            </>
 
+            : <Info 
+                image={isOrderComppete ? "/img/complete-order.jpg" : "/img/empty-cart.jpg"}
+                title={isOrderComppete ? "Заказ оформлен!" : "Корзина пустая"}
+                description={isOrderComppete ? `Ваш заказ №${orderId} начал формироваться` : "Добавьте товар, чтобы оформить заказ"}
+            />
+        }
       </div>
     </div>
   )
