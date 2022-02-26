@@ -6,8 +6,25 @@ export default function Home({
     setSearchValue, 
     onAddToCart, 
     onAddFavorite, 
-    onChangeSearchInput
+    onChangeSearchInput,
+    isLoading
   }) {
+
+    const renderItems = () => {
+      const filtredGoods = goods.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()))
+      return (isLoading ? [...Array(8)] : filtredGoods) 
+        .map((item, index) => (
+        <Card 
+          key={index} 
+          item={item}
+          // added={() => isItemAdded(item && item.id)}
+          onFavorite={onAddFavorite}
+          onPlus={onAddToCart}
+          loading={isLoading}
+        />)
+      )
+    }
+
   return (
     <div className="content">
       <div className="content__inner">
@@ -20,14 +37,7 @@ export default function Home({
       </div>
 
       <div className="cards">
-        { goods.filter(item => item.name.toLowerCase().includes(searchValue)).map(item => (
-          <Card 
-            key={item.id} 
-            item={item}
-            onFavorite={onAddFavorite}
-            onPlus={onAddToCart}
-          />)
-        )}
+        {renderItems()}
       </div>
 
     </div>
