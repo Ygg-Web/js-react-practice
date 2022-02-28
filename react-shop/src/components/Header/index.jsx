@@ -1,8 +1,11 @@
+import { useCart } from '../../hooks/useCart'
 import classes from './Header.module.scss'
 import {Link} from "react-router-dom"
 
 
 export default function Header (props) {
+  const {totalPrice} = useCart()
+
   return (
     <header>
       <Link to="/">
@@ -17,7 +20,7 @@ export default function Header (props) {
       <ul className={classes.headerBasket}>
         <li onClick={props.onOpenCart}>
           <img width={18} height={18} src="/img/cart.svg" alt="Cart" />
-          <span>  1205 руб.</span>
+          <span> {totalPrice} руб.</span>
         </li>
         <li>
           <Link to="/favorites">
@@ -25,7 +28,9 @@ export default function Header (props) {
           </Link>
         </li>
         <li>
-          <img width={18} height={18} src="/img/user.svg" alt="User" />
+          <Link to="/orders">
+            <img width={18} height={18} src="/img/user.svg" alt="User" />
+          </Link>
         </li>
       </ul>
     </header>

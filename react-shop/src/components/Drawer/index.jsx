@@ -4,12 +4,14 @@ import classes from './Drawer.module.scss'
 import AppContext from '../../AppContext'
 import Info from '../Info'
 import axios from 'axios'
+import { useCart } from '../../hooks/useCart'
 
 export default function Drawer({onClose, onRemove, items=[]}) {
-  const {cartItems, setCartItems, urlBack} = useContext(AppContext)
+  const {urlBack} = useContext(AppContext)
   const [isOrderComppete, setIsOrderComppete] = useState(false)
   const [orderId, setOrderId] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
+  const {cartItems, setCartItems, totalPrice} = useCart()
 
 
 
@@ -60,12 +62,12 @@ export default function Drawer({onClose, onRemove, items=[]}) {
                   <li>
                     <span>Итого:</span>
                     <div></div>
-                    <b>30 999 руб.</b>
+                    <b>{totalPrice} руб.</b>
                   </li>
                   <li>
                     <span>Налог 5%:</span>
                     <div></div>
-                    <b>2065 руб.</b>
+                    <b>{(totalPrice / 100) * 5} руб.</b>
                   </li>
                 </ul>
                 <button disabled={isLoading} onClick={onClickOrder} className={classes.greenButton} >

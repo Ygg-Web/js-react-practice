@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react'
 import {Routes, Route} from "react-router-dom"
 import Favorites from './pages/Favorites'
+import Orders from './pages/Orders'
 import axios from 'axios'
 import Header from "./components/Header"
 import Drawer from "./components/Drawer"
@@ -98,6 +99,7 @@ function App() {
             isLoading={isLoading}
         />}/>
         <Route path='/favorites' element={<Favorites/>}/>
+        <Route path='/orders' element={<Orders/>}/>
       </Routes>
       
     </div>
