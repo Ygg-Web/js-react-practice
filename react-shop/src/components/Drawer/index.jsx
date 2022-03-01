@@ -6,7 +6,7 @@ import Info from '../Info'
 import axios from 'axios'
 import { useCart } from '../../hooks/useCart'
 
-export default function Drawer({onClose, onRemove, items=[]}) {
+export default function Drawer({onClose, onRemove, items=[], opened}) {
   const {urlBack} = useContext(AppContext)
   const [isOrderComppete, setIsOrderComppete] = useState(false)
   const [orderId, setOrderId] = useState(null)
@@ -34,7 +34,7 @@ export default function Drawer({onClose, onRemove, items=[]}) {
   }
 
   return (
-    <div className={classes.overlay}>
+    <div className={`${classes.overlay} ${opened ? classes.overlayVisible : ''}`}>
       <div className={classes.drawer}>
         <h2>
           Корзина

@@ -22,69 +22,91 @@ function App() {
 
   useEffect(()=> {
    async function fetchData() {
-    const cartsRes = await axios.get(`${urlBack}/cart`)
-    const favoritesRes = await axios.get(`${urlBack}/favorites`)
-    const goodsRes = await axios.get(`${urlBack}/goods`)
-    
-    setIsLoading(false)
+    try {
+      const [cartsRes, favoritesRes, goodsRes] = await Promise.all([
+        axios.get(`${urlBack}/cart`),
+        axios.get(`${urlBack}/favorites`),
+        axios.get(`${urlBack}/goods`)
+      ])
 
-    setCartItems(cartsRes.data)
-    setFavorites(favoritesRes.data)
-    setGoods(goodsRes.data)
+      setIsLoading(false)
+      setCartItems(cartsRes.data)
+      setFavorites(favoritesRes.data)
+      setGoods(goodsRes.data)
+    } catch (error) {
+      console.error(error)
+      alert("Ошибка при запросе данных")
+    }
   }
    fetchData()
   }, [])
 
-  const onAddToCart = (item) => {
+  const onAddToCart = async (item) => {
    try {
-    if(cartItems.find(cartItem => Number(cartItem.id) === Number(item.id))) {
-      axios.delete(`${urlBack}/cart/${item.id}`)
-      setCartItems(prevState => prevState.filter(cartItem => Number(cartItem.id) !== Number(item.id)))
+    const findItem = cartItems.find(cartItem => Number(cartItem.parentId) === Number(item.id))
+    if(findItem) {
+      setCartItems(prevState => prevState.filter(cartItem => Number(cartItem.parentId) !== Number(item.id)))
+      await axios.delete(`${urlBack}/cart/${findItem.id}`)
     } else {
-      axios.post(`${urlBack}/cart`, item)
       setCartItems(prevState => [...prevState, item])
+      const {data} = await axios.post(`${urlBack}/cart`, item)
+      setCartItems(prevState => prevState.map(item => {
+        if (item.parentId === data.parentId){
+          return {
+            ...item,
+            id: data.id
+          }
+        }
+        return item
+      }))
     }
    } catch(error) {
-    console.log(error)
+    console.error(error)
+    alert("Ошибка при добавлении товара в корзину")
    }
   }
 
   const onRemoveItem = (id) => {
-    axios.delete(`${urlBack}/cart/${id}`)
-    setCartItems(prevState => prevState.filter(item => item.id !== id))
+    try {
+       axios.delete(`${urlBack}/cart/${id}`)
+      setCartItems(prevState => prevState.filter(item => Number(item.id) !== Number(id))) 
+    } catch(error) {
+      console.error(error)
+      alert("Ошибка при удалении товара из корзины")
+    }
   }
 
   const onAddFavorite = async (item) => {
     try {
       if(favorites.find(favItem => Number(favItem.id) === Number(item.id))) {
-        axios.delete(`${urlBack}/favorites/${item.id}`)
         setFavorites(prevState => prevState.filter(favItem => Number(favItem.id) !== Number(item.id)))
+        await axios.delete(`${urlBack}/favorites/${item.id}`)
       } else {
         const {data} = await axios.post(`${urlBack}/favorites`, item)
         setFavorites(prevState => [...prevState, data])
       }
     } catch(error) {
+      console.error(error)
       alert("Не удалось добавить товар в закладки")    
     }
   }
 
   const onChangeSearchInput = (e) => setSearchValue(e.target.value)
 
-  const isItemAdded = (id) => {
-    return cartItems.some(cartItem => Number(cartItem.id) === Number(id))
-  }
+  const isItemAdded = (id) => cartItems.some(cartItem => Number(cartItem.parentId) === Number(id))
+  
 
   return (
    <AppContext.Provider value={{goods, cartItems, favorites, isItemAdded, onAddFavorite, setCartOpened, setCartItems, urlBack}}>
     <div className="wrapper">
       
       <Header onOpenCart={()=>setCartOpened(true)}/>
-      {cartOpened 
-      && <Drawer 
+      <Drawer 
           items={cartItems} 
           onClose={()=>setCartOpened(false)}
           onRemove={onRemoveItem}
-      />}
+          opened={cartOpened}
+      />
 
       <Routes>
         <Route path='/' element={
