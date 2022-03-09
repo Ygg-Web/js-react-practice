@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import classNames from "classnames";
+import PropTypes from "prop-types";
 
-export default function PizzaBlock({ pizza = [] }) {
-  const [activeSize, setActiveSize] = useState(0);
-  const [activeType, setActiveType] = useState(0);
+export default function PizzaBlock({ pizza = {} }) {
+  const availableTypes = ["тонкое", "традиционное"];
+  const availableSizes = [26, 30, 40];
+  const [activeType, setActiveType] = useState(pizza.types[0]);
+  const [activeSize, setActiveSize] = useState(pizza.sizes[0]);
 
   const onSelectedSize = (index) => {
     setActiveSize(index);
@@ -18,28 +22,32 @@ export default function PizzaBlock({ pizza = [] }) {
       <h4 className="pizza-block__title">{pizza.name}</h4>
       <div className="pizza-block__selector">
         <ul>
-          {pizza.types &&
-            pizza.types.map((item, index) => (
-              <li
-                className={activeType === index ? "active" : ""}
-                onClick={() => onSelectedType(index)}
-                key={index}
-              >
-                {item ? "тонкое" : "традиционное"}
-              </li>
-            ))}
+          {availableTypes.map((type, index) => (
+            <li
+              className={classNames({
+                active: activeType === index,
+                disabled: !pizza.types.includes(index),
+              })}
+              onClick={() => onSelectedType(index)}
+              key={type}
+            >
+              {type}
+            </li>
+          ))}
         </ul>
         <ul>
-          {pizza.sizes &&
-            pizza.sizes.map((item, index) => (
-              <li
-                className={activeSize === index ? "active" : ""}
-                onClick={() => onSelectedSize(index)}
-                key={index}
-              >
-                {item} см.
-              </li>
-            ))}
+          {availableSizes.map((size, index) => (
+            <li
+              className={classNames({
+                active: activeSize === index,
+                disabled: !pizza.sizes.includes(size),
+              })}
+              onClick={() => onSelectedSize(index)}
+              key={size}
+            >
+              {size} см.
+            </li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
@@ -64,3 +72,20 @@ export default function PizzaBlock({ pizza = [] }) {
     </div>
   );
 }
+
+PizzaBlock.propTypes = {
+  pizza: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    types: PropTypes.arrayOf(PropTypes.number).isRequired,
+    sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }),
+};
+
+PizzaBlock.defaultProps = {
+  name: "Название пиццы",
+  price: 0,
+  types: [],
+  sizes: [],
+};
