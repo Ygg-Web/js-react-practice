@@ -5,7 +5,7 @@ export default function SortPopup({ items }) {
   const [activeItem, setActiveItem] = useState(0);
 
   const sortRef = useRef();
-  const activeLabel = items[activeItem];
+  const activeLabel = items[activeItem].name;
 
   const onSelectedItem = (index) => {
     setActiveItem(index);
@@ -53,9 +53,9 @@ export default function SortPopup({ items }) {
                 <li
                   className={activeItem === index ? "active" : ""}
                   onClick={() => onSelectedItem(index)}
-                  key={`${item}_${index}`}
+                  key={`${item.type}_${index}`}
                 >
-                  {item}
+                  {item.name}
                 </li>
               ))}
           </ul>
