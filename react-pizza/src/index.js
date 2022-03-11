@@ -7,8 +7,6 @@ import store from "./redux/store";
 import "./scss/app.scss";
 import App from "./App";
 
-console.log(store);
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>

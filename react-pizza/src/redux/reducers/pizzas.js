@@ -1,5 +1,5 @@
 const initialState = {
-  pizzas: [],
+  items: [],
   isLoading: false,
 };
 
@@ -8,7 +8,7 @@ const pizzas = (state = initialState, action) => {
     case "SET_PIZZAS":
       return {
         ...state,
-        pizzas: action.data,
+        items: action.data,
       };
     case "SET_LOADING":
       return {

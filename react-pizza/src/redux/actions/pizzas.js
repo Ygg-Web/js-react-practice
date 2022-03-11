@@ -1,4 +1,4 @@
-export const setPizzas = (pizzas) => ({
+export const setPizzas = (items) => ({
   type: "SET_PIZZAS",
-  data: pizzas,
+  data: items,
 });
