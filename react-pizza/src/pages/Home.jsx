@@ -4,6 +4,7 @@ import { Categories, SortPopup, PizzaBlock } from "../components";
 import Placeholder from "../components/PizzaBlock/Placeholder";
 import { setCategoty, setSortBy } from "../redux/actions/filters";
 import { fetchPizzas } from "../redux/actions/pizzas";
+import { addPizzaToCart } from "../redux/actions/cart";
 
 const categoryNames = [
   "Мясные",
@@ -20,6 +21,8 @@ const sortItems = [
 
 export default function Home() {
   const pizzas = useSelector(({ pizzas }) => pizzas.items);
+  const cartItems = useSelector(({ cart }) => cart.items);
+
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoading);
   const { category, sortBy } = useSelector(({ filters }) => filters);
 
@@ -36,6 +39,10 @@ export default function Home() {
 
   const onSelectSortType = useCallback((type) => {
     dispatch(setSortBy(type));
+  }, []);
+
+  const handelAddPizzaToCart = useCallback((pizzaInCart) => {
+    dispatch(addPizzaToCart(pizzaInCart));
   }, []);
 
   return (
@@ -56,7 +63,12 @@ export default function Home() {
       <div className="content__items">
         {isLoaded
           ? pizzas.map((pizza) => (
-              <PizzaBlock key={pizza.id} pizza={pizza} isLoading={true} />
+              <PizzaBlock
+                onClickAddPizza={handelAddPizzaToCart}
+                key={pizza.id}
+                pizza={pizza}
+                countAdded={cartItems[pizza.id] && cartItems[pizza.id].length}
+              />
             ))
           : Array(12)
               .fill(0)
