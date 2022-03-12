@@ -1,6 +1,9 @@
 const initialState = {
-  sortBy: "popular",
-  category: 0,
+  category: null,
+  sortBy: {
+    type: "popular",
+    order: "desc",
+  },
 };
 
 const filters = (state = initialState, action) => {
@@ -13,7 +16,7 @@ const filters = (state = initialState, action) => {
     case "SET_CATEGORY":
       return {
         ...state,
-        socategorytBy: action.data,
+        category: action.data,
       };
     default:
       return state;

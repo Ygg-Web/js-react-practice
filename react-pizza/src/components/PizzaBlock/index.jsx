@@ -1,7 +1,6 @@
 import { useState } from "react";
 import classNames from "classnames";
 import PropTypes from "prop-types";
-
 export default function PizzaBlock({ pizza = {} }) {
   const availableTypes = ["тонкое", "традиционное"];
   const availableSizes = [26, 30, 40];
