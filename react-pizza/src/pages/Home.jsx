@@ -13,6 +13,7 @@ const categoryNames = [
   "Острые",
   "Закрытые",
 ];
+
 const sortItems = [
   { name: "популярности", type: "popular", order: "desc" },
   { name: "цене", type: "price", order: "desc" },
@@ -21,12 +22,10 @@ const sortItems = [
 
 export default function Home() {
   const pizzas = useSelector(({ pizzas }) => pizzas.items);
-  const cartItems = useSelector(({ cart }) => cart.items);
-
   const isLoaded = useSelector(({ pizzas }) => pizzas.isLoading);
+  const cartItems = useSelector(({ cart }) => cart.items);
   const { category, sortBy } = useSelector(({ filters }) => filters);
 
-  console.log(category, sortBy);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,7 +66,9 @@ export default function Home() {
                 onClickAddPizza={handelAddPizzaToCart}
                 key={pizza.id}
                 pizza={pizza}
-                countAdded={cartItems[pizza.id] && cartItems[pizza.id].length}
+                countAdded={
+                  cartItems[pizza.id] && cartItems[pizza.id].items.length
+                }
               />
             ))
           : Array(12)

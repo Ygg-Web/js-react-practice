@@ -10,8 +10,9 @@ export default function PizzaBlock({
 }) {
   const availableTypes = ["тонкое", "традиционное"];
   const availableSizes = [26, 30, 40];
+
   const [activeType, setActiveType] = useState(pizza.types[0]);
-  const [activeSize, setActiveSize] = useState(0);
+  const [activeSize, setActiveSize] = useState(pizza.sizes[0]);
 
   const onSelectedSize = (index) => setActiveSize(index);
   const onSelectedType = (index) => setActiveType(index);
@@ -22,7 +23,7 @@ export default function PizzaBlock({
       name: pizza.name,
       imageUrl: pizza.imageUrl,
       price: pizza.price,
-      size: availableSizes[activeSize],
+      size: activeSize,
       type: availableTypes[activeType],
     };
     onClickAddPizza(pizzaInCart);
@@ -51,10 +52,10 @@ export default function PizzaBlock({
           {availableSizes.map((size, index) => (
             <li
               className={classNames({
-                active: activeSize === index,
+                active: activeSize === size,
                 disabled: !pizza.sizes.includes(size),
               })}
-              onClick={() => onSelectedSize(index)}
+              onClick={() => onSelectedSize(size)}
               key={size}
             >
               {size} см.

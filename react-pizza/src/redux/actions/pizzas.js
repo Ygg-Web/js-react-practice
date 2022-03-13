@@ -7,9 +7,9 @@ export const fetchPizzas = (category, sortBy) => (dispatch) => {
   const fetchJson = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/pizzas?${
-          category !== null ? `category=${category}` : " "
-        }&_sort=${sortBy.type}&_order=${sortBy.order}`
+        `/pizzas?${category !== null ? `category=${category}` : " "}&_sort=${
+          sortBy.type
+        }&_order=${sortBy.order}`
       );
 
       const json = await response.json();
