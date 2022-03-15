@@ -8,6 +8,20 @@ const getTotalPrice = (arr) => {
   return arr.reduce((sum, item) => sum + item.price, 0);
 };
 
+const _get = (obj, path) => {
+  const [firstKey, ...keys] = path.split(".");
+  return keys.reduce((val, key) => {
+    return val[key];
+  }, obj[firstKey]);
+};
+
+const getTotalSum = (obj, path) => {
+  return Object.values(obj).reduce((sum, obj) => {
+    const value = _get(obj, path);
+    return sum + value;
+  }, 0);
+};
+
 const cart = (state = initialState, action) => {
   switch (action.type) {
     case "ADD_PIZZA_CART": {
@@ -23,45 +37,58 @@ const cart = (state = initialState, action) => {
         },
       };
 
-      const items = Object.values(newItems).map((obj) => obj.items);
-      const allPizzas = [].concat.apply([], items);
-      const totalPrice = getTotalPrice(allPizzas);
+      const totalCount = getTotalSum(newItems, "items.length");
+      const totalPrice = getTotalSum(newItems, "totalPrice");
 
       return {
         ...state,
         items: newItems,
-        totalCount: allPizzas.length,
+        totalCount,
         totalPrice,
       };
     }
     case "PLUS_CART_ITEM": {
-      const newItems = [
+      const newObjectItems = [
         ...state.items[action.data].items,
         state.items[action.data].items[0],
       ];
+
+      const newItems = {
+        ...state.items,
+        [action.data]: {
+          items: newObjectItems,
+          totalPrice: getTotalPrice(newObjectItems),
+        },
+      };
+
+      const totalCount = getTotalSum(newItems, "items.length");
+      const totalPrice = getTotalSum(newItems, "totalPrice");
+
       return {
         ...state,
-        items: {
-          ...state.items,
-          [action.data]: {
-            items: newItems,
-            totalPrice: getTotalPrice(newItems),
-          },
-        },
+        items: newItems,
+        totalCount,
+        totalPrice,
       };
     }
     case "MINUS_CART_ITEM": {
       const oldItems = state.items[action.data].items;
-      const newItems = oldItems.length > 1 ? oldItems.slice(1) : oldItems;
+      const newObjectItems = oldItems.length > 1 ? oldItems.slice(1) : oldItems;
+      const newItems = {
+        ...state.items,
+        [action.data]: {
+          items: newObjectItems,
+          totalPrice: getTotalPrice(newObjectItems),
+        },
+      };
+      const totalCount = getTotalSum(newItems, "items.length");
+      const totalPrice = getTotalSum(newItems, "totalPrice");
+
       return {
         ...state,
-        items: {
-          ...state.items,
-          [action.data]: {
-            items: newItems,
-            totalPrice: getTotalPrice(newItems),
-          },
-        },
+        items: newItems,
+        totalCount,
+        totalPrice,
       };
     }
     case "CLEAR_CART":
