@@ -1,8 +1,8 @@
-import Button from "../../Button/index,js";
-import WhiteBlock from "../../WhiteBlock";
+import Button from "../../Button";
+import {WhiteBlock} from "../../WhiteBlock";
 import styles from "./WelcomeStep.module.scss";
 
-export default function WelcomeStep() {
+export const WelcomeStep = () => {
   return (
     <WhiteBlock className={styles.block}>
       <h3>
@@ -23,4 +23,4 @@ export default function WelcomeStep() {
       <div className="link mt-15 cup d-id">Have an invite text? Sign in</div>
     </WhiteBlock>
   );
-}
+};

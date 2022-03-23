@@ -12,11 +12,12 @@ export default function Button({
     green: styles.buttonGreen,
     gray: styles.buttonGray,
   };
+
   return (
     <button
       onClick={onClick}
       type="button"
-      className={clsx(className, styles.button, color[color])}
+      className={clsx(className, styles.button, colors[color])}
       disabled={disabled}
     >
       {children}

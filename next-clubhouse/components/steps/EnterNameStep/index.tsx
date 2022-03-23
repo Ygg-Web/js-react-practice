@@ -1,14 +1,14 @@
-import Button from "../../Button/index,js";
-import WhiteBlock from "../../WhiteBlock";
+import Button from "../../Button";
+import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./EnterNameStep.module.scss";
-import StepInfo from "./";
+import StepInfo from "../../StepInfo";
 
-export default function EnterNameStep() {
+export const EnterNameStep = () => {
   return (
     <div className={styles.block}>
       <StepInfo
-        icon="./"
+        icon="/"
         tittle="What's your full name?"
         description="People use real names on Clubhouse :) Thnx!"
       />
@@ -23,4 +23,4 @@ export default function EnterNameStep() {
       </WhiteBlock>
     </div>
   );
-}
+};

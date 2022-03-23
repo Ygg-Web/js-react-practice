@@ -1,10 +1,10 @@
-import Button from "../../Button/index,js";
-import WhiteBlock from "../../WhiteBlock";
+import Button from "../../Button";
+import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./TwitterStep.module.scss";
-import StepInfo from "./";
+import StepInfo from "../../StepInfo";
 
-export default function TwitterStep() {
+export const TwitterStep = () => {
   return (
     <div className={styles.block}>
       <StepInfo icon="./" tittle="Do you want import info from Twitter?" />
@@ -35,4 +35,4 @@ export default function TwitterStep() {
       </WhiteBlock>
     </div>
   );
-}
+};

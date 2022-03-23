@@ -1,9 +1,16 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class AppDocument extends Document {
-  static async getInitialProps(ctx){
-    const initialProps = await Document this.getInitialProps(ctx)
-    return {...initialProps}
+  static async getInitialProps(ctx) {
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => App,
+        enhanceComponent: (Component) => Component,
+      });
+    const initialProps = await Document.getInitialProps(ctx);
+
+    return initialProps;
   }
 
   render() {

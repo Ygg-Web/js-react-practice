@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Button from "../../Button/index,js";
-import WhiteBlock from "../../WhiteBlock";
+import Button from "../../Button";
+import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./EnterCodeStep.module.scss";
-import StepInfo from "./";
+import StepInfo from "../../StepInfo";
 
-export default function EnterCodeStep() {
+export const EnterCodeStep = () => {
   const [codes, setCodes] = useState([]);
 
   const nextDisabled = codes.some((v) => !v) || codes.length < 4;
@@ -43,4 +43,4 @@ export default function EnterCodeStep() {
       </WhiteBlock>
     </div>
   );
-}
+};

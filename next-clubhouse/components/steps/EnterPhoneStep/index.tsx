@@ -1,12 +1,12 @@
 import { useState } from "react";
 import NumberFormat from "react-number-format";
-import Button from "../../Button/index,js";
-import WhiteBlock from "../../WhiteBlock";
+import Button from "../../Button";
+import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./EnterPhoneStep.module.scss";
-import StepInfo from "./";
+import StepInfo from "../../StepInfo";
 
-export default function EnterPhoneStep() {
+export const EnterPhoneStep = () => {
   const [inputValue, setInputValue] = useState({});
 
   const nextDisabled =
@@ -42,4 +42,4 @@ export default function EnterPhoneStep() {
       </WhiteBlock>
     </div>
   );
-}
+};

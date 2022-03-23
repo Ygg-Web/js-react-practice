@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import styles from "./StepInfo.module.scss";
 
-export default StepInfo = ({ title, description, icon }) => {
+export default function StepInfo({ title, description, icon }) {
   return (
     <div className={clsx(styles.block, "text-center")}>
       <div>
@@ -11,4 +11,4 @@ export default StepInfo = ({ title, description, icon }) => {
       {description && <p className={styles.description}>{description}</p>}
     </div>
   );
-};
+}
