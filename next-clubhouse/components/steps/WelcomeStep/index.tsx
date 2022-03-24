@@ -6,7 +6,7 @@ export const WelcomeStep = () => {
   return (
     <WhiteBlock className={styles.block}>
       <h3>
-        <img className={styles.handWaveImg} src="#" alt="Celebration" />
+        <img className={styles.handWaveImg} src="/img/hand-emoji.png" alt="Celebration" />
         Welcome to Clubhouse!
       </h3>
       <p>
@@ -17,7 +17,7 @@ export const WelcomeStep = () => {
       <div>
         <Button>
           Get your username
-          <img className="d-id ml-10" src="/static/arrow.svg" />
+          <img className="d-id ml-10" src="/img/arrow.svg"/>
         </Button>
       </div>
       <div className="link mt-15 cup d-id">Have an invite text? Sign in</div>

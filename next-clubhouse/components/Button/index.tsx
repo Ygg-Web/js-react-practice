@@ -6,7 +6,7 @@ export default function Button({
   disabled,
   color,
   onClick,
-  className,
+  className
 }) {
   const colors = {
     green: styles.buttonGreen,

@@ -1,0 +1,22 @@
+.whiteBlock{
+  .input{
+   margin-bottom: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   img{
+     margin-right: 20px;
+     width: 30px;
+     height: 30px;
+   }
+  }
+  .policyText{
+    width: 380px;
+   margin: 0 auto;
+  }
+}
+
+.block{
+  margin:  100px auto;
+  text-align: center;
+}

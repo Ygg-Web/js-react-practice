@@ -1,0 +1,25 @@
+.block{
+  margin:  0 auto;
+  box-sizing: border-box;
+  margin-bottom: 40px;
+  
+  .img{
+    width: 50px;
+    height: 50x;
+    margin: 0 0 10px 0;
+  }
+
+  .title{
+    font-size: 1.5rem;
+  }
+
+  .description{
+    margin:0 ;
+    font-size: 1.4rem;
+  }
+}
+
+.text-center{
+  text-align: center;
+}
+

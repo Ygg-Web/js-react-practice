@@ -22,13 +22,13 @@ export const ChooseAvatarStep:React.FC = () => {
   return (
     <div className={styles.block}>
       <StepInfo
-        icon="./"
-        tittle="Okay, Petrov Ivan!"
+        icon="/img/fireworks.png"
+        title="Okay, Petrov Ivan!"
         description="How's this photo"
       />
       <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>
         <div className={styles.avatar}>
-          <Avatar width="120px" height="120px" src="ghffhfgh" />
+          <Avatar width="120px" height="120px" src="https://i.pinimg.com/originals/95/1b/53/951b53b90c64d9adad8807d6218eae41.jpg" />
         </div>
         <div className="mb-30">
           <label htmlFor="image" className="link cup">
@@ -38,7 +38,7 @@ export const ChooseAvatarStep:React.FC = () => {
         <input id="image" ref={inputFileRef} type="file" hidden />
         <Button>
           next
-          <img src="./" alt="Name" className="d-id ml-10" />
+          <img src="/img/arrow.svg" alt="arrow" className="d-id ml-10" />
         </Button>
       </WhiteBlock>
     </div>

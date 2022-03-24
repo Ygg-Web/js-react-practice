@@ -28,17 +28,16 @@ export const EnterCodeStep = () => {
   return (
     <div className={styles.block}>
       <StepInfo
-        icon="./"
-        tittle="What's your full name?"
-        description="People use real names on Clubhouse :) Thnx!"
+        icon="/img/number.png"
+        title="Enter your active code"
       />
       <WhiteBlock className={clsx("m-auto", styles.whiteBlock)}>
         <div className="mb-30">
           <input className="field" placeholder="Enter fullname" />
         </div>
         <Button>
-          next
-          <img src="./" alt="Name" className="d-id ml-10" />
+          Active
+          <img src="/img/arrow.svg" alt="arrow" className="d-id ml-10" />
         </Button>
       </WhiteBlock>
     </div>

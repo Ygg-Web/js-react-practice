@@ -15,13 +15,13 @@ export const EnterPhoneStep = () => {
   return (
     <div className={styles.block}>
       <StepInfo
-        icon="./"
-        tittle="Enter your phone #"
+        icon="/img/telephone.png"
+        title="Enter your phone #"
         description="We will send you a confirmation code"
       />
       <WhiteBlock className={clsx("m-auto mt-30", styles.whiteBlock)}>
         <div className={clsx("mt-30", styles.input)}>
-          <img src="./" alt="flag" width={24} />
+          <img src="/img/flag.png" alt="flag" width={24} />
           <NumberFormat
             className="field"
             format="+# (###) ###-##-##"
@@ -33,11 +33,10 @@ export const EnterPhoneStep = () => {
         </div>
         <Button disabled={nextDisabled}>
           Next
-          <img src="./" alt="next" className="d-id ml-10" />
+          <img src="/img/arrow.svg" alt="arrow" className="d-id ml-10" />
         </Button>
         <p className={clsx(styles.policyText, "mt-30")}>
-          By entering your number, you're agreeing to our Terms of Service nad
-          Privacy Policy. Thanks
+          By entering your number, you're agreeing to our Terms of Service nad Privacy Policy. Thanks
         </p>
       </WhiteBlock>
     </div>
