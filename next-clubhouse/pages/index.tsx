@@ -16,7 +16,7 @@ const stepsComponents = {
 }
 
 export default function Home() {
-  const [step, setStep] = useState<number>(3)
+  const [step, setStep] = useState<number>(4)
   const Step = stepsComponents[step]
 
   return (

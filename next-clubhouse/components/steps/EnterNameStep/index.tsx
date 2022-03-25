@@ -1,4 +1,4 @@
-import Button from "../../Button";
+import {Button} from "../../Button";
 import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./EnterNameStep.module.scss";

@@ -1,16 +1,21 @@
 import { useState } from "react";
 import NumberFormat from "react-number-format";
-import Button from "../../Button";
-import {WhiteBlock} from "../../WhiteBlock";
 import clsx from "clsx";
-import styles from "./EnterPhoneStep.module.scss";
+import { Button } from "../../Button";
+import { WhiteBlock } from "../../WhiteBlock";
 import StepInfo from "../../StepInfo";
+import styles from "./EnterPhoneStep.module.scss";
+
+type InputValueState = {
+  formattedValue: string;
+  value: string;
+};
 
 export const EnterPhoneStep = () => {
-  const [inputValue, setInputValue] = useState({});
+  const [values, setValues] = useState<InputValueState>({} as InputValueState);
 
   const nextDisabled =
-    !inputValue.formattedValue || inputValue.formattedValue.includes("_");
+    !values.formattedValue || values.formattedValue.includes("_");
 
   return (
     <div className={styles.block}>
@@ -27,8 +32,10 @@ export const EnterPhoneStep = () => {
             format="+# (###) ###-##-##"
             mask="_"
             placeholder="+7 (999) 333-33-33"
-            value={inputValue.value}
-            onValueChange={(values) => setInputValue(values)}
+            value={values.value}
+            onValueChange={({ formattedValue, value }) =>
+              setValues({ formattedValue, value })
+            }
           />
         </div>
         <Button disabled={nextDisabled}>
@@ -36,7 +43,8 @@ export const EnterPhoneStep = () => {
           <img src="/img/arrow.svg" alt="arrow" className="d-id ml-10" />
         </Button>
         <p className={clsx(styles.policyText, "mt-30")}>
-          By entering your number, you're agreeing to our Terms of Service nad Privacy Policy. Thanks
+          By entering your number, you're agreeing to our Terms of Service nad
+          Privacy Policy. Thanks
         </p>
       </WhiteBlock>
     </div>

@@ -1,16 +1,23 @@
-import React, { useRef, useEffect } from "react";
-import Button from "../../Button";
-import {WhiteBlock} from "../../WhiteBlock";
+import React, { useRef, useEffect, useState } from "react";
+import { Button } from "../../Button";
+import { WhiteBlock } from "../../WhiteBlock";
 import clsx from "clsx";
 import styles from "./ChooseAvatarStep.module.scss";
 import StepInfo from "../../StepInfo";
 import { Avatar } from "../../Avatar";
 
-export const ChooseAvatarStep:React.FC = () => {
+export const ChooseAvatarStep: React.FC = () => {
+  const [avatarUrl, setAvatarUrl] = useState<string>(
+    "https://i.pinimg.com/originals/95/1b/53/951b53b90c64d9adad8807d6218eae41.jpg"
+  );
   const inputFileRef = useRef<HTMLInputElement>(null);
 
-  const handleChangeImage = (e) => {
-    console.log(e.target.files);
+  const handleChangeImage = (e: Event): void => {
+    const file = (e.target as HTMLInputElement).files[0]; 
+    if (file) { 
+    const imageUrl = URL.createObjectURL(file);
+    setAvatarUrl(imageUrl);
+  }
   };
 
   useEffect(() => {
@@ -28,7 +35,7 @@ export const ChooseAvatarStep:React.FC = () => {
       />
       <WhiteBlock className={clsx("m-auto mt-40", styles.whiteBlock)}>
         <div className={styles.avatar}>
-          <Avatar width="120px" height="120px" src="https://i.pinimg.com/originals/95/1b/53/951b53b90c64d9adad8807d6218eae41.jpg" />
+          <Avatar width="120px" height="120px" src={avatarUrl} />
         </div>
         <div className="mb-30">
           <label htmlFor="image" className="link cup">
