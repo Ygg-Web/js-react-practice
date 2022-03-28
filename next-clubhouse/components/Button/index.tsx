@@ -1,26 +1,26 @@
 import clsx from "clsx";
 import styles from "./Button.module.scss";
 
-interface ButtonProps{
+const colors = {
+  green: styles.buttonGreen,
+  gray: styles.buttonGray,
+  blue: styles.buttonBlue,
+};
+
+interface ButtonProps {
   disabled?: boolean;
-  color?: 'green' | 'gray';
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  color?: keyof typeof colors;
+  onClick?: any;
   className?: string;
 }
-
 
 export const Button: React.FC<ButtonProps> = ({
   children,
   disabled,
   color,
   onClick,
-  className
-}) =>  {
-  const colors = {
-    green: styles.buttonGreen,
-    gray: styles.buttonGray,
-  };
-
+  className,
+}) => {
   return (
     <button
       onClick={onClick}
@@ -31,4 +31,4 @@ export const Button: React.FC<ButtonProps> = ({
       {children}
     </button>
   );
-}
+};

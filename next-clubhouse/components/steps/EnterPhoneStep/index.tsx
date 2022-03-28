@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NumberFormat from "react-number-format";
 import clsx from "clsx";
 import { Button } from "../../Button";
 import { WhiteBlock } from "../../WhiteBlock";
-import StepInfo from "../../StepInfo";
+import { StepInfo } from "../../StepInfo";
 import styles from "./EnterPhoneStep.module.scss";
+import { MainContext } from "../../../pages";
 
 type InputValueState = {
   formattedValue: string;
@@ -12,6 +13,7 @@ type InputValueState = {
 };
 
 export const EnterPhoneStep = () => {
+  const { onNextStep } = useContext(MainContext);
   const [values, setValues] = useState<InputValueState>({} as InputValueState);
 
   const nextDisabled =
@@ -38,7 +40,7 @@ export const EnterPhoneStep = () => {
             }
           />
         </div>
-        <Button disabled={nextDisabled}>
+        <Button disabled={nextDisabled} onClick={onNextStep}>
           Next
           <img src="/img/arrow.svg" alt="arrow" className="d-id ml-10" />
         </Button>

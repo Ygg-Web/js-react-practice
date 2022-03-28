@@ -1,0 +1,48 @@
+.card{
+  padding: 30px 35px !important;
+  min-height: 170px !important;
+  width: 380px !important;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.title{
+  margin: 0;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 30px;
+  width: 320px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.users {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+  
+  li{
+    display: flex;
+    align-items: center;
+    img {
+      margin: 0 0 0 5px;
+      color: #f2c8c8;
+    }
+  }
+}
+
+.details{
+  width: 80px;
+  list-style: none;
+  color: #f2c8c8;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  
+  li{
+    img {fill: #f2c8c8;}
+  }
+}
