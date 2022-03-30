@@ -22,21 +22,25 @@ export const ConversationCard: React.FC<ConversationCardProps> = ({
     <div className={clsx(whiteBlockStyles.block, styles.card, "mb-30")}>
       <h4 className={styles.title}>{title}</h4>
       <div className={clsx("d-flex mt-10", styles.content)}>
-        <div className={styles.avatar}>
+        <div className={styles.avatars}>
           {avatars.map((url, i) => (
             <Avatar
               key={url}
               width="45px"
               height="45px"
               src={url}
-              className={i === avatars.length - 1 ? "lastAvatar" : ""}
+              className={
+                avatars.length > 1 && i === avatars.length - 1
+                  ? "lastAvatar"
+                  : ""
+              }
             />
           ))}
         </div>
         <div className={clsx(styles.info, "ml-10")}>
           <ul className={styles.users}>
-            {guests.map((name) => (
-              <li key={name}>
+            {guests.map((name, index) => (
+              <li key={name + index}>
                 {name}
                 <img src="/img/cloud.svg" alt="Cloud" width={14} height={14} />
               </li>

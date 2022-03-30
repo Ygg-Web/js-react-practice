@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Button } from "../components/Button";
 import { ConversationCard } from "../components/ConversationCard";
 import { Header } from "../components/Header";
+import Axios from "../core/axios";
 
-export default function Rooms() {
+export default function Rooms({ rooms }) {
   return (
     <>
       <Header />
@@ -12,24 +13,41 @@ export default function Rooms() {
           <h1>All conversations</h1>
           <Button color="green">+Start room</Button>
         </div>
-        <div className="mt-20">
-          <Link href="/rooms/test-room">
-            <a>
-              <ConversationCard
-                title="Create clone Clubhouse"
-                avatars={[
-                  "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-                  "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-                ]}
-                guests={["Ivan Pupkiin", "Alex Bead", "Max Google"]}
-                guestsCount={44}
-                speakersCount={3}
-              />
-            </a>
-          </Link>
+        <div className="grid mt-30">
+          {rooms.map((obj) => (
+            <Link key={obj.id} href={`/rooms/${obj.id}`}>
+              <a className="d-flex">
+                <ConversationCard
+                  title={obj.title}
+                  avatars={obj.avatars}
+                  guests={obj.guests}
+                  guestsCount={obj.guestCount}
+                  speakersCount={obj.speakerCount}
+                />
+              </a>
+            </Link>
+          ))}
         </div>
       </div>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  try {
+    const { data } = await Axios.get("rooms.json");
+    // console.log(data);
+    return {
+      props: {
+        rooms: data,
+      },
+    };
+  } catch (error) {
+    console.log("error!");
+    return {
+      props: {
+        rooms: [],
+      },
+    };
+  }
+};
