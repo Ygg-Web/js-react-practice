@@ -1,5 +1,12 @@
 import express from "express";
-import passport from "passport";
+import dotenv from "dotenv";
+
+dotenv.config({
+  path: "server/.env",
+});
+
+import "./core/db";
+import { passport } from "./core/passport";
 
 const app = express();
 
@@ -9,10 +16,10 @@ app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/login" }),
   (req, res) => {
-    // Successful authentication, redirect home.
-    res.redirect("/");
+    res.send();
   }
 );
+
 app.listen(3001, () => {
   console.log("Server Runned!");
 });
